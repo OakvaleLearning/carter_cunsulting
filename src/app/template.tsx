@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { Logo } from "@/components/layout/Logo";
 import { motion } from "framer-motion";
 import { EASE_EXPO, EASE_INOUT } from "@/lib/cn";
 
@@ -21,7 +21,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
           animate={{ opacity: 0, y: -16 }}
           transition={{ duration: 0.4, delay: 0.2, ease: EASE_EXPO }}
         >
-          <Image src="/logo-white.png" alt="" width={900} height={182} loading="eager" className="h-auto w-[220px]" />
+          <Logo tone="light" className="text-[34px]" />
         </motion.div>
       </motion.div>
       <motion.main

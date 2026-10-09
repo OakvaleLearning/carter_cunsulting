@@ -28,7 +28,7 @@ export function GlowCard({ children, className }: { children: React.ReactNode; c
         className="pointer-events-none absolute -inset-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background:
-            "radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(36, 121, 84, 0.28), transparent 45%)",
+            "radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 121, 50, 0.28), transparent 45%)",
         }}
       />
       <div className="relative">{children}</div>

@@ -4,14 +4,26 @@
 @custom-variant hoverable (@media (hover: hover) and (min-width: 64rem));
 
 @theme {
-  --color-brand: #247954;
-  --color-brand-deep: #185a3d;
-  --color-brand-light: #9fd8b8;
-  --color-ink: #0b1a13;
-  --color-paper: #f6f5f0;
-  --color-mist: #e8efea;
+  /* Carter Brand Style Guideline — primary palette */
+  --color-brand: #007932; /* Forest Green */
+  --color-brand-deep: #005524; /* Forest Green, darkened for hover/pressed states */
+  --color-brand-mid: #4cb050; /* Medium Sea Green */
+  --color-brand-light: #a5d6a7; /* Pale Spring Bud */
+  --color-topaz: #ffcc80;
+  --color-tangerine: #ff8b66; /* Atomic Tangerine */
 
-  --font-body: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+  /* Complementary palette */
+  --color-cadet: #a0a4a1; /* Cadet Blue */
+  --color-lime: #a7df2f; /* Vibrant Lime Green */
+  --color-pastel-blue: #a5c3c4;
+  --color-copper: #ad7847; /* Copper Brown */
+  --color-orange: #cf4e3c; /* Outrageous Orange */
+
+  /* Neutrals */
+  --color-ink: #0b1a13;
+  --color-paper: #fefffa; /* guideline page background */
+  --color-mist: #edf6ee; /* Pale Spring Bud tint */
+  --color-logo: #007932; /* Forest Green */
 
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
@@ -27,6 +39,8 @@
 }
 
 @theme inline {
+  --font-body: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-body);
   --font-display: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
   --font-label: var(--font-josefin), "Trebuchet MS", sans-serif;
 }

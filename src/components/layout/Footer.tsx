@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { Logo } from "@/components/layout/Logo";
 import { ParallaxLayer } from "@/components/motion/Parallax";
 import { FOOTER_LINKS, OFFICES, PRACTICES } from "@/lib/content";
 
@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container-x relative pb-10 pt-24 lg:pt-32">
         <div className="grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Image src="/logo-white.png" alt="Carter Consulting" width={900} height={182} className="h-auto w-[200px]" />
+            <Logo tone="light" className="text-[30px]" />
             <p className="mt-10 max-w-sm font-display text-3xl leading-tight text-white">
               Closing the distance between intent and impact since 2009.
             </p>

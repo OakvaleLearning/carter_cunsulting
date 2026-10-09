@@ -82,7 +82,7 @@ export function Hero() {
         <motion.div style={{ y: eyebrowY }}>
           <Rise delay={0.75}>
             <p className="flex items-center gap-4 text-sm text-brand-light label-text sm:text-base">
-              <span aria-hidden className="-mt-[0.2em] h-px w-10 bg-current" />
+              {/* <span aria-hidden className="-mt-[0.2em] h-px w-10 bg-current" /> */}
               <span>
                 From Intent to <MorphWord from="Intent" to="Impact" delay={1.9} />
               </span>
