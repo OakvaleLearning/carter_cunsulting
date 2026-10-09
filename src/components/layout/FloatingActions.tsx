@@ -1,12 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValueEvent,
-  useScroll,
-} from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ArrowUp, Phone, X } from "lucide-react";
 import { useMediaQuery } from "@/lib/useReducedMotionSafe";
 import { GENERAL_CONTACT } from "@/lib/content";
@@ -46,10 +41,7 @@ export function FloatingActions() {
   }, [open]);
 
   return (
-    <div
-      ref={ref}
-      className="fixed bottom-6 right-6 z-30 flex flex-col items-end gap-3 sm:bottom-8 sm:right-8"
-    >
+    <div ref={ref} className="fixed bottom-6 right-6 z-30 flex flex-col items-end gap-3 sm:bottom-8 sm:right-8">
       <div className="flex items-center gap-3">
         <AnimatePresence>
           {open && desktop && (
@@ -67,13 +59,7 @@ export function FloatingActions() {
         </AnimatePresence>
         <a
           href={TEL}
-          aria-label={
-            desktop
-              ? open
-                ? "Hide phone number"
-                : "Show phone number"
-              : `Call ${GENERAL_CONTACT.phone}`
-          }
+          aria-label={desktop ? (open ? "Hide phone number" : "Show phone number") : `Call ${GENERAL_CONTACT.phone}`}
           aria-expanded={desktop ? open : undefined}
           onClick={(e) => {
             if (!desktop) return;
@@ -82,11 +68,7 @@ export function FloatingActions() {
           }}
           className={cn(BUTTON, "bg-brand text-white hover:bg-brand-deep")}
         >
-          {open && desktop ? (
-            <X aria-hidden className="size-5" />
-          ) : (
-            <Phone aria-hidden className="size-5" />
-          )}
+          {open && desktop ? <X aria-hidden className="size-5" /> : <Phone aria-hidden className="size-5" />}
         </a>
       </div>
 
