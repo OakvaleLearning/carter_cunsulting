@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MotionProvider } from "@/components/motion/MotionProvider";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { FloatingActions } from "@/components/layout/FloatingActions";
 import "./globals.css";
 
 const garamond = EB_Garamond({
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           {children}
           <Footer />
+          <FloatingActions />
         </MotionProvider>
       </body>
     </html>

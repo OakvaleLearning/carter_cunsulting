@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { MorphWord } from "@/components/motion/MorphWord";
 import { RotatingPhrase } from "@/components/motion/RotatingPhrase";
+import { WaterRipple } from "@/components/motion/WaterRipple";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HERO_PHRASES } from "@/lib/content";
 import { EASE_EXPO } from "@/lib/cn";
@@ -72,6 +73,7 @@ export function Hero() {
             fetchPriority="high"
             className="object-cover"
           />
+          <WaterRipple src="/images/hero.jpg" />
         </motion.div>
       </motion.div>
       <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/90" />
