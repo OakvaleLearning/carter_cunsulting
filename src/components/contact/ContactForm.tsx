@@ -99,13 +99,10 @@ export function ContactForm() {
               </label>
             </div>
 
-            <div className="flex flex-col gap-6 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
+            <div className="sm:col-span-2">
               <Button type="submit" disabled={pending}>
                 {pending ? "Sending…" : "Submit Enquiry"}
               </Button>
-              <p className="max-w-xs text-xs leading-relaxed text-ink/55">
-                General enquiries will be reviewed by our Client Delivery &amp; Partnerships team.
-              </p>
             </div>
 
             {state.status === "error" && state.message && (

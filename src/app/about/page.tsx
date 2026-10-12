@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Careers } from "@/components/about/Careers";
 import { Experience } from "@/components/about/Experience";
 import { Intro } from "@/components/about/Intro";
-import { People } from "@/components/about/People";
 import { Principles } from "@/components/about/Principles";
 import { TrackRecord } from "@/components/about/TrackRecord";
 import { WhatWeDo } from "@/components/about/WhatWeDo";
@@ -30,7 +29,6 @@ export default function Page() {
       <Principles />
       <TrackRecord />
       <WhereWeWork />
-      <People />
       <Careers />
     </>
   );

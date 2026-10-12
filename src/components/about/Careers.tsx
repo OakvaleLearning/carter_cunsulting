@@ -14,7 +14,7 @@ export function Careers() {
   return (
     <section id="careers" className="relative isolate overflow-hidden bg-ink text-white">
       <ParallaxImage
-        src="/images/careers.jpg"
+        src="/images/careers-lagos.jpg"
         alt=""
         reveal={false}
         speed={14}

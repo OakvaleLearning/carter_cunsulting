@@ -8,8 +8,7 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { PageHero } from "@/components/ui/PageHero";
 import { CONTACT_HEADLINES, GENERAL_CONTACT } from "@/lib/content";
 
-const SUPPORTING =
-  "Tell us what you are working on, where you are in the process and what you need to resolve. We will direct your enquiry to the relevant team.";
+const SUPPORTING = "Share the decision in front of you, and we will bring the right expertise to it.";
 
 export const metadata: Metadata = { title: "Contact Us", description: SUPPORTING };
 
@@ -19,7 +18,8 @@ export default function Page() {
       <PageHero
         eyebrow="Contact Carter"
         title={<RotatingHeadline lines={CONTACT_HEADLINES} />}
-        titleClassName="max-w-5xl text-[clamp(2.4rem,5.2vw,5rem)] leading-[1.05]"
+        titleClassName="max-w-4xl text-[clamp(2rem,3.6vw,3.5rem)] leading-[1.08]"
+        eyebrowClassName="font-semibold"
         image="/images/contact-hero.jpg"
         intro={SUPPORTING}
       />
@@ -27,22 +27,21 @@ export default function Page() {
       <section className="bg-paper py-24 lg:py-36">
         <div className="container-x grid gap-16 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-4">
-            <Eyebrow className="text-brand">Enquiries</Eyebrow>
+            <Eyebrow className="text-brand">Engage Carter</Eyebrow>
             <RevealText
               as="h2"
-              text="Tell us what you need to resolve."
+              text="Begin with a considered conversation."
               className="mt-8 font-display text-[clamp(2rem,3.2vw,3rem)] leading-[1.08]"
               stagger={0.04}
             />
             <FadeIn delay={0.1}>
               <p className="mt-6 leading-relaxed text-ink/70">
                 Enquiries will be directed to the relevant Carter team based on the nature of the assignment.
-                General enquiries will be reviewed by our Client Delivery &amp; Partnerships team.
               </p>
             </FadeIn>
 
             <FadeIn delay={0.18} className="mt-14 border-t border-ink/10 pt-8">
-              <p className="text-[11px] text-brand label-text">General enquiries</p>
+              <p className="text-[11px] text-brand label-text">Direct contact</p>
               <ul className="mt-6 space-y-4">
                 <li>
                   <a
@@ -50,7 +49,7 @@ export default function Page() {
                     className="group inline-flex items-center gap-4 font-display text-2xl transition-colors hover:text-brand"
                   >
                     <Mail aria-hidden className="size-5 text-brand" />
-                    <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 ease-expo group-hover:bg-[length:100%_1px]">
+                    <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_2px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 ease-expo group-hover:bg-[length:100%_2px]">
                       {GENERAL_CONTACT.email}
                     </span>
                   </a>
@@ -61,7 +60,7 @@ export default function Page() {
                     className="group inline-flex items-center gap-4 font-display text-2xl transition-colors hover:text-brand"
                   >
                     <Phone aria-hidden className="size-5 text-brand" />
-                    <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_1px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 ease-expo group-hover:bg-[length:100%_1px]">
+                    <span className="bg-[linear-gradient(currentColor,currentColor)] bg-[length:0%_2px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500 ease-expo group-hover:bg-[length:100%_2px]">
                       {GENERAL_CONTACT.phone}
                     </span>
                   </a>

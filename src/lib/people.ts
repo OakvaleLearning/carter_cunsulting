@@ -33,11 +33,6 @@ export const LEADERSHIP_TEAM: Person[] = [p.adeniyi, p.tayo, p.david];
 
 export const PRACTICE_TEAMS: Group[] = [
   {
-    id: "strategy-public-policy",
-    title: "Strategy & Public Policy Advisory",
-    people: [{ name: "Gbeminiyi Onikute", role: "Practice Lead" }],
-  },
-  {
     id: "technology-digital-transformation",
     title: "Technology & Digital Transformation",
     people: [
@@ -47,6 +42,12 @@ export const PRACTICE_TEAMS: Group[] = [
         role: "Consultant",
         bio: "Ezra Ochijenu is a management consultant with experience in technology advisory, data analytics and project management. His work includes supporting organizations with technology-enabled solutions, data visualization, business analysis and digital process improvement, combining analytical insight with practical project management to help organizations improve operations and make informed technology decisions.",
         linkedin: "https://www.linkedin.com/in/ezra-ochijenu-1a0015ba",
+      },
+      {
+        name: "Morolake Onamusi",
+        role: "Consultant",
+        bio: "Morolake Onamusi is a technology and consulting professional with over a decade of experience across technology, education, data, and digital transformation. Her work includes technology-enabled solutions, product development, research and analysis, stakeholder engagement, and digital transformation, with experience supporting organizations in applying technology to improve operations and address complex challenges across education and other sectors.",
+        linkedin: "https://www.linkedin.com/in/morolake-onamusi/",
       },
     ],
   },
@@ -119,13 +120,6 @@ export const PRACTICE_TEAMS: Group[] = [
         bio: "Adeola Olaleye is a Consultant in Sector Advisory with experience in marketing communications, digital marketing and creative content development. Her expertise includes research, content strategy, social media management, search engine optimization, email marketing and campaign development, supporting organizations with effective communication and digital engagement strategies.",
         linkedin: "https://www.linkedin.com/in/adeola-olaleye-b60604161/",
       },
-      {
-        name: "Morolake Onamusi",
-        role: "Consultant",
-        bio: "Morolake Onamusi is a technology and consulting professional with over a decade of experience across technology, education, data, and digital transformation. Her work includes technology-enabled solutions, product development, research and analysis, stakeholder engagement, and digital transformation, with experience supporting organizations in applying technology to improve operations and address complex challenges across education and other sectors.",
-        linkedin: "https://www.linkedin.com/in/morolake-onamusi/",
-      },
-      { name: "Olawale Tinko", role: "Consultant" },
       {
         name: "Joshua Daniel",
         role: "Consultant (Energy)",

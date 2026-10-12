@@ -100,7 +100,7 @@ export function Hero() {
             <span aria-hidden className="block">
               <Line delay={0.85}>We translate</Line>
               <Line delay={0.95}>
-                <RotatingPhrase phrases={HERO_PHRASES} startDelay={2400} className="italic text-brand-light" />
+                <RotatingPhrase phrases={HERO_PHRASES} startDelay={2400} className="text-[0.78em] italic text-brand-light" />
               </Line>
               <Line delay={1.05}>into sustainable outcomes.</Line>
             </span>

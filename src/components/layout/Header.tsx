@@ -70,14 +70,14 @@ export function Header() {
                         href={item.href}
                         aria-current={active ? "page" : undefined}
                         className={cn(
-                          "group relative text-[13px] transition-colors duration-300 font-display uppercase leading-none tracking-[0.2em]",
+                          "group relative text-[13px] transition-colors duration-300 label-text",
                           light ? "text-white/80 hover:text-white" : "text-ink/70 hover:text-ink",
                         )}
                       >
                         {item.label}
                         <span
                           className={cn(
-                            "absolute -bottom-2 left-0 h-px w-full origin-left bg-current transition-transform duration-500 ease-expo",
+                            "absolute -bottom-2 left-0 h-[2px] w-full origin-left bg-current transition-transform duration-500 ease-expo",
                             active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100",
                           )}
                         />
@@ -96,7 +96,7 @@ export function Header() {
                           : "border-brand bg-brand text-white hover:border-brand-deep hover:bg-brand-deep",
                       )}
                     >
-                      <span className="-mr-[0.2em] font-display uppercase leading-none tracking-[0.2em]">Contact Us</span>
+                      <span className="-mr-[0.2em] label-text">Contact Us</span>
                     </Link>
                   </Magnetic>
                 </li>

@@ -7,7 +7,7 @@ export function JoinCarter() {
   return (
     <>
       <section id="join" className="relative isolate overflow-hidden bg-ink text-white">
-        <ParallaxImage src="/images/careers.jpg" alt="" reveal={false} speed={14} className="!absolute inset-0 -z-10" />
+        <ParallaxImage src="/images/careers-lagos.jpg" alt="" reveal={false} speed={14} className="!absolute inset-0 -z-10" />
         <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/85 via-ink/75 to-ink/90" />
         <div aria-hidden className="absolute inset-0 -z-10 bg-brand/25 mix-blend-multiply" />
 

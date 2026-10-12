@@ -8,7 +8,7 @@ export function Approach() {
   return (
     <section className="relative overflow-hidden bg-ink text-white">
       <ParallaxImage
-        src="/images/approach.jpg"
+        src="/images/approach-lagos.jpg"
         alt=""
         reveal={false}
         speed={14}

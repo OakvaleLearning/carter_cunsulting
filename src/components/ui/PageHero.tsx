@@ -13,6 +13,7 @@ export function PageHero({
   intro,
   image,
   titleClassName,
+  eyebrowClassName,
 }: {
   eyebrow: string;
   title: React.ReactNode;
@@ -20,6 +21,7 @@ export function PageHero({
   image: string;
   /** Overrides the title's size, e.g. for sentence-length headlines. */
   titleClassName?: string;
+  eyebrowClassName?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotionSafe();
@@ -47,7 +49,7 @@ export function PageHero({
       <motion.div style={{ y: textY, opacity: fade }} className="relative container-x pb-20 pt-40 lg:pb-28">
         <motion.p
           data-motion
-          className="text-xs text-brand-light label-text"
+          className={cn("text-xs text-brand-light label-text", eyebrowClassName)}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8, ease: EASE_EXPO }}

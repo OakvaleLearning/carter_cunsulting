@@ -23,7 +23,7 @@ export function ServicesCTA() {
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/80">
               Tell us what you are working on, where you are in the process and what you need to resolve. Select
               a practice above or{" "}
-              <Link href="/contact" className="text-brand-light underline decoration-brand-light/40 underline-offset-4 transition-colors hover:decoration-brand-light">
+              <Link href="/contact" className="text-brand-light underline decoration-2 decoration-brand-light/40 underline-offset-4 transition-colors hover:decoration-brand-light">
                 talk to Carter
               </Link>
               .

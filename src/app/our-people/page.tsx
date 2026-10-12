@@ -7,7 +7,7 @@ import { ProfileProvider } from "@/components/people/Profiles";
 import { PageHero } from "@/components/ui/PageHero";
 
 const INTRO =
-  "Carter brings together multidisciplinary expertise across strategy, technology, finance, programme delivery and sector advisory. Our leadership team provides the direction, institutional perspective and technical depth that underpin the firm's work.";
+  "Multidisciplinary expertise across strategy, technology, finance, programme delivery and sector advisory.";
 
 export const metadata: Metadata = { title: "Our People", description: INTRO };
 
@@ -17,7 +17,7 @@ export default function Page() {
       <PageHero
         eyebrow="Leadership & Practice Teams"
         title="Our People"
-        image="/images/people-hero.jpg"
+        image="/images/people-hero-lagos.jpg"
         intro={INTRO}
       />
       <Leadership />

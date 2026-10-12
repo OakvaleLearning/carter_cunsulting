@@ -24,8 +24,8 @@ export function Intro() {
         <div className="mt-20 grid gap-16 lg:mt-28 lg:grid-cols-12 lg:gap-12">
           <div className="relative lg:col-span-5">
             <ParallaxImage
-              src="/images/strategy.jpg"
-              alt="Advisers reviewing documents around a table"
+              src="/images/strategy-lagos.jpg"
+              alt="Advisers in discussion around a meeting table"
               className="aspect-[4/5] w-full"
               sizes="(min-width: 1024px) 40vw, 100vw"
               speed={12}

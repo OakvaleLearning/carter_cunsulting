@@ -41,7 +41,7 @@ export const PRACTICES: Practice[] = [
       client: "World Bank / IDA",
       slug: "federal-capital-project-expenditure-study",
     },
-    image: "/images/strategy.jpg",
+    image: "/images/strategy-lagos.jpg",
   },
   {
     number: "02",

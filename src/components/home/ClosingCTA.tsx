@@ -27,7 +27,7 @@ export function ClosingCTA() {
             <span aria-hidden className="block">
               <FadeIn>Considering</FadeIn>
               <FadeIn delay={0.1}>
-                <RotatingPhrase phrases={CLOSING_PHRASES} interval={2600} className="text-brand-light" />
+                <RotatingPhrase phrases={CLOSING_PHRASES} interval={2600} className="text-[0.78em] text-brand-light" />
               </FadeIn>
             </span>
           </h2>

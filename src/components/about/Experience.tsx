@@ -27,26 +27,30 @@ export function Experience() {
 
         <div className="lg:col-span-6 lg:col-start-7">
           <FadeIn>
-            <p className="text-lg leading-relaxed text-ink/80">
+            <p className="text-xl leading-relaxed text-ink/80 lg:text-2xl">
               Since 2009, Carter has worked across a range of institutional and market environments in Nigeria and
               beyond. Our assignments have included:
             </p>
           </FadeIn>
-          <ul className="mt-8 flex flex-wrap gap-3">
+          {/* A plain list, not pills, so the items don't read as clickable buttons. */}
+          <ul className="mt-10 grid border-t border-ink/10 sm:grid-cols-2 sm:gap-x-10">
             {ASSIGNMENTS.map((a, i) => (
               <FadeIn
                 as="li"
                 key={a}
                 delay={i * 0.06}
                 y={14}
-                className="rounded-full border border-brand/25 bg-white px-5 py-3 text-sm text-ink/80"
+                className="flex items-baseline gap-4 border-b border-ink/10 py-5 font-display text-xl leading-snug text-ink lg:text-2xl"
               >
+                <span aria-hidden className="text-xs text-brand label-text">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 {a}
               </FadeIn>
             ))}
           </ul>
           <FadeIn delay={0.1}>
-            <p className="mt-10 leading-relaxed text-ink/70">
+            <p className="mt-10 text-lg leading-relaxed text-ink/70 lg:text-xl">
               The nature of this work has given us a practical understanding of how decisions are made and
               implemented within complex institutions. It also means we understand that recommendations must
               account for the regulatory environment, available resources, organisational capability, stakeholder
