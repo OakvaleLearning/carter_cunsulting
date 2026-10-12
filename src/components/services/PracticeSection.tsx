@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { ParallaxImage } from "@/components/motion/Parallax";
 import { FadeIn, RevealText } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { caseStudyHref } from "@/lib/case-studies";
 import { SERVICES, shortTitle, type Practice } from "@/lib/content";
 
 export function PracticeSection({ practice }: { practice: Practice }) {
@@ -81,7 +82,7 @@ export function PracticeSection({ practice }: { practice: Practice }) {
 
       <FadeIn className="mt-10">
         <div className="flex flex-col gap-10 bg-ink p-8 text-white sm:p-10">
-          <Link href={`/case-studies#${practice.proof.slug}`} className="group block max-w-2xl">
+          <Link href={caseStudyHref(practice.proof.slug) ?? "/case-studies"} className="group block max-w-2xl">
             <p className="text-[11px] text-brand-light label-text">Case Study</p>
             <p className="mt-4 font-display text-2xl leading-snug transition-colors duration-300 group-hover:text-brand-light lg:text-3xl">
               {practice.proof.title}

@@ -25,6 +25,7 @@ export type Practice = {
   slug: string;
   title: string;
   statement: string;
+  /** A case study that evidences the practice: feature slug or snapshot id. */
   proof: { title: string; client: string; slug: string };
   image: string;
 };
@@ -37,9 +38,9 @@ export const PRACTICES: Practice[] = [
     statement:
       "Translating ambition into implementable strategy, and policy intent into actionable instruments and models for organisations making consequential choices about growth, reform, investment and performance.",
     proof: {
-      title: "Federal Capital Project Expenditure Study",
-      client: "World Bank / IDA",
-      slug: "federal-capital-project-expenditure-study",
+      title: "Strengthening Sokoto's Public Finance Systems",
+      client: "Sokoto State Ministry of Finance / World Bank",
+      slug: "institutional-capacity-assessment-and-siftas-implementation-support-for-sokoto-state",
     },
     image: "/images/strategy-lagos.jpg",
   },
@@ -50,7 +51,7 @@ export const PRACTICES: Practice[] = [
     statement:
       "Enterprise architecture and digital government platforms designed around the way organisations need to operate and the outcomes they intend to deliver.",
     proof: {
-      title: "Budget Information Management and Monitoring Software (BIMMS)",
+      title: "Monitoring Government Enterprise Budgets",
       client: "Budget Office of the Federation",
       slug: "bimms",
     },
@@ -63,9 +64,9 @@ export const PRACTICES: Practice[] = [
     statement:
       "Capability and discipline required to take complex programmes from strategy and mobilisation through implementation, governance and delivery, with the structures needed to sustain results.",
     proof: {
-      title: "Nationwide ICT Capacity Building for Tertiary Education",
-      client: "45+ institutions, six geopolitical zones",
-      slug: "nationwide-ict-capacity-building",
+      title: "Trust at National Scale",
+      client: "NIMC / World Bank",
+      slug: "trust-at-national-scale",
     },
     image: "/images/delivery.jpg",
   },
@@ -76,9 +77,9 @@ export const PRACTICES: Practice[] = [
     statement:
       "Bringing financial, commercial and transaction expertise to complex investment decisions, from tax and risk assessment through business case development, value-chain planning, transaction structuring and execution.",
     proof: {
-      title: "LPG Value Chain Business Planning",
-      client: "Levene Energy / NSIA",
-      slug: "lpg-value-chain-business-planning",
+      title: "Preparing Kano's Agro-Industrial Zone for Investment",
+      client: "Special Agro-Industrial Processing Zones Programme",
+      slug: "transaction-advisory-services-for-the-kano-state-special-agro-industrial-processing-zone",
     },
     image: "/images/finance.jpg",
   },
@@ -89,9 +90,9 @@ export const PRACTICES: Practice[] = [
     statement:
       "Advisory grounded in specialist expertise to address complex sector and institutional challenges, spanning energy transition, environmental and social risk, infrastructure, health system performance, financing and reform.",
     proof: {
-      title: "Framework for LPG Adoption as a Low-Carbon Alternative",
-      client: "World Bank / NEWMAP",
-      slug: "lpg-adoption-framework",
+      title: "Evidence Before Reform in Plateau State",
+      client: "Plateau State Government",
+      slug: "evidence-before-reform-in-plateau-state",
     },
     image: "/images/sector.jpg",
   },

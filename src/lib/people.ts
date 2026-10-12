@@ -16,9 +16,12 @@ export type Person = {
 
 export type Group = { id: string; title: string; people: Person[] };
 
-// Case-study ids (see lib/case-studies.ts) that people's project profiles point to.
+// Case studies (feature slugs or snapshot ids, see lib/case-studies.ts) that people's project profiles point to.
 const CS = {
-  id4d: "independent-verification-agent-for-the-nigeria-digital-identification-for-development-project",
+  id4d: "trust-at-national-scale",
+  plateau: "evidence-before-reform-in-plateau-state",
+  cloud: "national-framework-for-cloud-governance",
+  mreif: "structure-before-scale",
   sapz: "transaction-advisory-services-for-the-kano-state-special-agro-industrial-processing-zone",
   assets: "development-of-the-national-assets-registry",
   pppCatalogue: "development-of-a-ppp-investment-catalogue-and-sector-focused-roadmap",
@@ -63,7 +66,7 @@ const p = {
         project: "Configuration and Deployment of the Budget Information Management & Monitoring System (BIMMS)",
         caseStudy: CS.bimms,
       },
-      { role: "Project Lead", project: PLATEAU },
+      { role: "Project Lead", project: PLATEAU, caseStudy: CS.plateau },
       { role: "Project Lead", project: PPP_CATALOGUE, caseStudy: CS.pppCatalogue },
       {
         role: "Project Lead",
@@ -92,7 +95,7 @@ const p = {
       "Project Management Professional (PMP), Project Management Institute",
     ],
     projects: [
-      { role: "Digital Infrastructure Adviser", project: "National Cloud Policy" },
+      { role: "Digital Infrastructure Adviser", project: "National Cloud Policy", caseStudy: CS.cloud },
       { role: "Technical Verification Expert", project: "ID4D Independent Verification", caseStudy: CS.id4d },
       { role: "ICT Infrastructure Lead", project: "National Revenue Data Centre", caseStudy: CS.revenueDc },
       { role: "Systems Configuration Lead", project: "BIMMS for Government-Owned Enterprises", caseStudy: CS.bimms },
@@ -251,7 +254,7 @@ export const PRACTICE_TEAMS: Group[] = [
             project: `${SAPZ}: investment, PPP and SPV structuring`,
             caseStudy: CS.sapz,
           },
-          { role: "Financial Model Expert", project: PLATEAU },
+          { role: "Financial Model Expert", project: PLATEAU, caseStudy: CS.plateau },
           { role: "Financial Analyst", project: OAKS },
         ],
         interests: "Beyond work, Emmanuel enjoys playing football, hiking and reading.",
@@ -282,7 +285,7 @@ export const PRACTICE_TEAMS: Group[] = [
           "MBBS, Olabisi Onabanjo University",
         ],
         projects: [
-          { role: "Healthcare Specialist", project: PLATEAU },
+          { role: "Healthcare Specialist", project: PLATEAU, caseStudy: CS.plateau },
           { role: "Consultant", project: "Corporate Health Assessment Programmes" },
           { role: "Clinical Lead", project: "Tele-health Pilot for Rural Clinics" },
         ],
@@ -307,7 +310,7 @@ export const PRACTICE_TEAMS: Group[] = [
             project: "Independent Verification Agent for Nigeria Digital Identification for Development (ID4D)",
             caseStudy: CS.id4d,
           },
-          { role: "Team Lead", project: PLATEAU },
+          { role: "Team Lead", project: PLATEAU, caseStudy: CS.plateau },
           {
             role: "Media & Communications Expert",
             project: "Establishment & Restructuring of the Ministry of Finance Incorporated (MOFI)",
@@ -372,7 +375,7 @@ export const PRACTICE_TEAMS: Group[] = [
             project: "Kano Special Agro-Industrial Processing Zones (SAPZ) Programme",
             caseStudy: CS.sapz,
           },
-          { role: "Healthcare Diagnostic Consultant", project: PLATEAU },
+          { role: "Healthcare Diagnostic Consultant", project: PLATEAU, caseStudy: CS.plateau },
         ],
         interests: "Caleb's hobbies and interests include playing chess, gardening, reading, and writing poetry.",
         linkedin: "https://www.linkedin.com/in/caleb-adejoh-9a729b203",
@@ -431,7 +434,7 @@ export const ASSOCIATES: Person[] = [
     projects: [
       { role: "Technical Adviser", project: SAPZ, caseStudy: CS.sapz },
       { role: "Technical Adviser", project: "NASENI Finance and Accounts Automation" },
-      { role: "Programme Support", project: "Operationalisation of MREIF" },
+      { role: "Programme Support", project: "Operationalisation of MREIF", caseStudy: CS.mreif },
     ],
     interests:
       "To unwind, Joshua enjoys working out, watching movies, reading, listening to music, and spending time with his family.",

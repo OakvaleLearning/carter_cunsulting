@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useSpring } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { caseStudyHref } from "@/lib/case-studies";
 import { PRACTICES } from "@/lib/content";
 import { cn, EASE_EXPO } from "@/lib/cn";
 
@@ -105,7 +106,7 @@ export function PracticeIndex() {
                           <ArrowRight className="-mt-[0.2em] size-4 transition-transform duration-300 group-hover/link:translate-x-1" />
                         </Link>
                         <Link
-                          href={`/case-studies#${p.proof.slug}`}
+                          href={caseStudyHref(p.proof.slug) ?? "/case-studies"}
                           className="group/link inline-flex items-center gap-2 text-ink/60 hover:text-brand"
                         >
                           Read the case study

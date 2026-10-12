@@ -1,9 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Plus } from "lucide-react";
-import { CASE_STUDIES, type CaseStudy } from "@/lib/case-studies";
+import { ArrowRight, Plus } from "lucide-react";
+import { FEATURES, SNAPSHOTS, type Feature, type Snapshot } from "@/lib/case-studies";
 import { PRACTICES, shortTitle } from "@/lib/content";
 import { teamFor } from "@/lib/people";
 import { cn, EASE_EXPO } from "@/lib/cn";
@@ -15,25 +16,29 @@ const FILTERS = [
   ...PRACTICES.map((p) => ({ id: p.slug, label: shortTitle(p.title) })),
 ];
 
+const featuresFor = (filter: string) =>
+  filter === "all" ? FEATURES : FEATURES.filter((f) => f.related.some((r) => r === filter));
+const snapshotsFor = (filter: string) =>
+  filter === "all" ? SNAPSHOTS : SNAPSHOTS.filter((s) => s.group === filter);
+
 /**
- * The project index doubles as the case-study list: filter by practice, then
- * open any row to read its full profile. `#<profile-id>` opens a profile and
- * `#<practice-slug>` applies that practice's filter, so other pages can link in.
+ * The case-study index: one practice filter drives both the feature cards
+ * (each opening its own page) and the snapshot list, where any row opens in
+ * place. `#<snapshot-id>` opens a snapshot and `#<practice-slug>` applies that
+ * practice's filter, so other pages can link in.
  */
 export function ProjectIndex() {
   const [filter, setFilter] = useState("all");
   const [open, setOpen] = useState<string | null>(null);
-  // Closed panels become inert only after hydration, so without JS every profile stays readable.
+  // Closed panels become inert only after hydration, so without JS every snapshot stays readable.
   const hydrated = useSyncExternalStore(
     noop,
     () => true,
     () => false,
   );
 
-  const visible = useMemo(
-    () => (filter === "all" ? CASE_STUDIES : CASE_STUDIES.filter((c) => c.group === filter)),
-    [filter],
-  );
+  const features = useMemo(() => featuresFor(filter), [filter]);
+  const snapshots = useMemo(() => snapshotsFor(filter), [filter]);
 
   // Where to scroll once the list has re-rendered for an incoming hash.
   const scrollTo = useRef<string | null>(null);
@@ -43,7 +48,7 @@ export function ProjectIndex() {
     if (FILTERS.some((f) => f.id === id)) {
       setFilter(id);
       scrollTo.current = "project-index";
-    } else if (CASE_STUDIES.some((c) => c.id === id)) {
+    } else if (SNAPSHOTS.some((s) => s.id === id)) {
       setFilter("all");
       setOpen(id);
       scrollTo.current = id;
@@ -90,7 +95,7 @@ export function ProjectIndex() {
         className="-mx-6 flex gap-2 overflow-x-auto px-6 pb-2 [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"
       >
         {FILTERS.map((f) => {
-          const count = f.id === "all" ? CASE_STUDIES.length : CASE_STUDIES.filter((c) => c.group === f.id).length;
+          const count = featuresFor(f.id).length + snapshotsFor(f.id).length;
           const on = filter === f.id;
           return (
             <button
@@ -121,48 +126,122 @@ export function ProjectIndex() {
         })}
       </div>
 
-      <div className="mt-12 hidden grid-cols-12 gap-6 border-b border-ink/15 pb-4 text-[11px] text-ink/50 label-text lg:grid">
-        <span className="col-span-1">Year</span>
-        <span className="col-span-6">Client / Engagement</span>
-        <span className="col-span-3">Practice</span>
-        <span className="col-span-2">Status</span>
-      </div>
+      {features.length > 0 && (
+        <ul className="mt-12 grid gap-5 md:grid-cols-2">
+          <AnimatePresence initial={false} mode="popLayout">
+            {features.map((f) => (
+              <motion.li
+                key={f.slug}
+                layout="position"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5, ease: EASE_EXPO }}
+              >
+                <FeatureCard feature={f} />
+              </motion.li>
+            ))}
+          </AnimatePresence>
+        </ul>
+      )}
 
-      <ul className="border-t border-ink/15 lg:border-t-0">
-        <AnimatePresence initial={false} mode="popLayout">
-          {visible.map((c) => (
-            <motion.li
-              key={c.id}
-              id={c.id}
-              layout="position"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5, ease: EASE_EXPO }}
-              className="scroll-mt-28 border-b border-ink/15"
-            >
-              <Row study={c} open={open === c.id} inert={hydrated && open !== c.id} onToggle={() => toggle(c.id)} />
-            </motion.li>
-          ))}
-        </AnimatePresence>
-      </ul>
+      {snapshots.length > 0 && (
+        <>
+          <div className="mt-24 grid gap-6 lg:grid-cols-12">
+            <h2 className="font-display text-[clamp(2rem,3.4vw,3rem)] leading-[1.05] lg:col-span-5">More of Our Work</h2>
+            <p className="text-lg leading-relaxed text-ink/70 lg:col-span-6 lg:col-start-7 lg:self-end">
+              Short-form examples from the wider Carter portfolio: the client need, the work delivered and the
+              development link.
+            </p>
+          </div>
+
+          <div className="mt-12 hidden grid-cols-12 gap-6 border-b border-ink/15 pb-4 text-[11px] text-ink/50 label-text lg:grid">
+            <span className="col-span-1">Year</span>
+            <span className="col-span-7">Client / Engagement</span>
+            <span className="col-span-4">Practice</span>
+          </div>
+
+          <ul className="mt-8 border-t border-ink/15 lg:mt-0 lg:border-t-0">
+            <AnimatePresence initial={false} mode="popLayout">
+              {snapshots.flatMap((s, i) => [
+                ...(s.earlier && !snapshots[i - 1]?.earlier
+                  ? [
+                      <motion.li
+                        key="earlier-work"
+                        layout="position"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="border-b border-ink/15 pb-4 pt-14 text-[11px] text-brand label-text"
+                      >
+                        Earlier work · 2012 to 2016
+                      </motion.li>,
+                    ]
+                  : []),
+                <motion.li
+                  key={s.id}
+                  id={s.id}
+                  layout="position"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: EASE_EXPO }}
+                  className="scroll-mt-28 border-b border-ink/15"
+                >
+                  <Row snapshot={s} open={open === s.id} inert={hydrated && open !== s.id} onToggle={() => toggle(s.id)} />
+                </motion.li>,
+              ])}
+            </AnimatePresence>
+          </ul>
+        </>
+      )}
     </div>
   );
 }
 
+function FeatureCard({ feature: f }: { feature: Feature }) {
+  return (
+    <Link
+      href={`/case-studies/${f.slug}`}
+      className="group relative flex h-full flex-col border border-ink/10 bg-white p-8 transition-colors duration-500 hover:border-brand/40 lg:p-10"
+    >
+      <span
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-brand transition-transform duration-700 ease-expo group-hover:scale-x-100"
+      />
+      <span className="text-[11px] text-brand label-text">{f.label}</span>
+      <span className="mt-6 block font-display text-[clamp(1.75rem,2.6vw,2.5rem)] leading-[1.08] transition-colors duration-300 group-hover:text-brand">
+        {f.title}
+      </span>
+      <span className="mt-3 block text-sm leading-snug text-ink/55">{f.descriptor}</span>
+      <span className="mt-6 block text-lg leading-relaxed text-ink/75">{f.teaser}</span>
+      <span className="mt-auto flex items-center justify-between gap-4 pt-10">
+        <span className="text-[11px] text-ink/50 label-text">{f.period ?? "Case study"}</span>
+        <span className="flex items-center gap-2 text-[11px] text-ink transition-colors duration-300 label-text group-hover:text-brand">
+          Read case study
+          <ArrowRight
+            aria-hidden
+            className="-mt-[0.2em] size-3.5 transition-transform duration-500 ease-expo group-hover:translate-x-0.5"
+          />
+        </span>
+      </span>
+    </Link>
+  );
+}
+
 function Row({
-  study: c,
+  snapshot: s,
   open,
   inert,
   onToggle,
 }: {
-  study: CaseStudy;
+  snapshot: Snapshot;
   open: boolean;
   inert: boolean;
   onToggle: () => void;
 }) {
-  const panel = `${c.id}-panel`;
-  const team = teamFor(c.id);
+  const panel = `${s.id}-panel`;
+  const team = teamFor(s.id);
   return (
     <>
       <h3>
@@ -179,17 +258,16 @@ function Row({
               open ? "text-brand" : "text-ink/45 group-hover:text-brand",
             )}
           >
-            {c.year}
+            {s.year}
           </span>
-          <span className="lg:col-span-6">
-            <span className="block text-[11px] text-ink/50 label-text">{c.client}</span>
+          <span className="lg:col-span-7">
+            <span className="block text-[11px] text-ink/50 label-text">{s.client}</span>
             <span className="mt-2 block font-display text-xl leading-snug transition-colors duration-300 group-hover:text-brand lg:text-2xl">
-              {c.title}
+              {s.title}
             </span>
           </span>
-          <span className="col-start-2 text-sm text-ink/60 lg:col-span-3 lg:col-start-auto">{c.practice}</span>
-          <span className="col-start-2 flex items-center justify-between gap-4 lg:col-span-2 lg:col-start-auto">
-            <Status status={c.status} />
+          <span className="col-start-2 flex items-center justify-between gap-4 lg:col-span-4 lg:col-start-auto">
+            <span className="text-sm text-ink/60">{s.practice}</span>
             <span
               aria-hidden
               className={cn(
@@ -206,7 +284,7 @@ function Row({
       <div
         id={panel}
         role="region"
-        aria-label={c.title}
+        aria-label={s.title}
         inert={inert}
         data-collapse
         className={cn(
@@ -217,26 +295,25 @@ function Row({
         <div className="overflow-hidden">
           <div className="grid gap-10 pb-12 pt-2 lg:grid-cols-12 lg:gap-6">
             <div className="lg:col-span-6 lg:col-start-2">
-              <p className="text-lg leading-relaxed text-ink/80">{c.summary}</p>
-              <p className="mt-10 text-[11px] text-brand label-text">{c.deliverHeading}</p>
-              <ol className="mt-5 space-y-3">
-                {c.deliverables.map((d, i) => (
-                  <li key={d} className="flex gap-4 border-t border-ink/10 pt-3 leading-relaxed text-ink/75">
-                    <span className="w-6 shrink-0 font-label text-[11px] leading-[1.9] text-brand tabular-nums">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    {d}
-                  </li>
-                ))}
-              </ol>
+              <p className="text-lg leading-relaxed text-ink/80">{s.body}</p>
+              {s.result && (
+                <p className="mt-8 border-t border-ink/10 pt-5 leading-relaxed text-ink/80">
+                  <span className="mr-3 text-[11px] text-brand label-text">Result</span>
+                  {s.result}
+                </p>
+              )}
+              <p className="mt-8 border-t border-ink/10 pt-5 leading-relaxed">
+                <span className="mr-3 text-[11px] text-brand label-text">Development link</span>
+                <span className="font-display text-xl italic text-ink/80">{s.developmentLink}</span>
+              </p>
             </div>
             <dl className="grid h-fit grid-cols-2 gap-x-6 gap-y-6 bg-mist p-6 sm:p-8 lg:col-span-4 lg:col-start-9 lg:grid-cols-1">
               {(
                 [
-                  ["Practice", c.practice],
-                  ["Funding", c.funding],
-                  ["Role", c.role],
-                  ["Status", c.status],
+                  ["Client", s.client],
+                  ["Period", s.period],
+                  ["Carter's role", s.role],
+                  ["Practice", s.practice],
                 ] as const
               ).map(([k, v]) => (
                 <div key={k}>
@@ -259,26 +336,10 @@ function Row({
                   </dd>
                 </div>
               )}
-              <p className="col-span-2 border-t border-ink/10 pt-5 text-[10px] text-ink/45 label-text lg:col-span-1">
-                Project Profile {c.number}
-              </p>
             </dl>
           </div>
         </div>
       </div>
     </>
-  );
-}
-
-function Status({ status }: { status: CaseStudy["status"] }) {
-  const ongoing = status === "Ongoing";
-  return (
-    <span className="inline-flex items-center gap-2 text-[11px] leading-none">
-      <span className="relative flex size-2">
-        {ongoing && <span className="absolute inset-0 animate-ping rounded-full bg-brand/60" />}
-        <span className={cn("relative size-2 rounded-full", ongoing ? "bg-brand" : "bg-ink/25")} />
-      </span>
-      <span className={cn("-mr-[0.2em] label-text", ongoing ? "text-brand" : "text-ink/55")}>{status}</span>
-    </span>
   );
 }

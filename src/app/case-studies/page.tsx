@@ -4,22 +4,22 @@ import { ClosingCTA } from "@/components/home/ClosingCTA";
 import { FadeIn, RevealText } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { PageHero } from "@/components/ui/PageHero";
-import { CASE_STUDIES } from "@/lib/case-studies";
+import { FEATURES, INTRO, SNAPSHOTS } from "@/lib/case-studies";
 
-const years = CASE_STUDIES.map((c) => c.year);
+const years = [...FEATURES, ...SNAPSHOTS].flatMap((c) => (c.year ? [c.year] : []));
 const FIRST = Math.min(...years);
 const LAST = Math.max(...years);
 
 const STATS = [
-  { value: String(CASE_STUDIES.length), label: "Project profiles" },
+  { value: String(FEATURES.length), label: "Feature case studies" },
+  { value: String(SNAPSHOTS.length), label: "Engagement snapshots" },
   { value: `${FIRST}–${LAST}`, label: "Years of engagements" },
-  { value: String(new Set(CASE_STUDIES.map((c) => c.client)).size), label: "Clients & programmes" },
-  { value: String(new Set(CASE_STUDIES.map((c) => c.practice)).size), label: "Areas of practice" },
+  { value: String(new Set([...FEATURES, ...SNAPSHOTS].map((c) => c.client)).size), label: "Clients & programmes" },
 ];
 
 export const metadata: Metadata = {
   title: "Case Studies",
-  description: `${CASE_STUDIES.length} project profiles from Carter Consulting's engagements, ${FIRST} to ${LAST}.`,
+  description: INTRO.body[0],
 };
 
 export default function Page() {
@@ -37,14 +37,16 @@ export default function Page() {
             <div className="lg:col-span-6">
               <Eyebrow className="text-brand">Filter by practice · Open any engagement</Eyebrow>
               <RevealText
-                text="Project Index"
+                text={INTRO.heading}
                 className="mt-8 font-display text-[clamp(2.4rem,4vw,3.75rem)] leading-[1.05]"
               />
             </div>
-            <FadeIn delay={0.1} className="lg:col-span-5 lg:col-start-8 lg:self-end">
-              <p className="text-lg leading-relaxed text-ink/75">
-                The profiles are arranged from the most recent award to the earliest engagement.
-              </p>
+            <FadeIn delay={0.1} className="space-y-6 lg:col-span-5 lg:col-start-8 lg:self-end">
+              {INTRO.body.map((p) => (
+                <p key={p} className="text-lg leading-relaxed text-ink/75">
+                  {p}
+                </p>
+              ))}
             </FadeIn>
           </div>
 

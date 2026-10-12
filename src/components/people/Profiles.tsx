@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Plus, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { caseStudyHref } from "@/lib/case-studies";
 import { initials, photoOf, type Person } from "@/lib/people";
 import { cn, EASE_EXPO } from "@/lib/cn";
 
@@ -92,12 +93,14 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
                   <section className="mt-10">
                     <h3 className="text-[11px] text-brand label-text">Project profile</h3>
                     <ul className="mt-4">
-                      {person.projects.map((pr) => (
+                      {person.projects.map((pr) => {
+                        const href = pr.caseStudy && caseStudyHref(pr.caseStudy);
+                        return (
                         <li key={pr.role + pr.project} className="border-t border-ink/10 py-3 leading-relaxed">
                           <span className="block text-[11px] text-ink/50 label-text">{pr.role}</span>
-                          {pr.caseStudy ? (
+                          {href ? (
                             <Link
-                              href={`/case-studies#${pr.caseStudy}`}
+                              href={href}
                               onClick={close}
                               className="group/cs mt-1 inline text-ink/85 underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:text-brand hover:decoration-brand"
                             >
@@ -112,7 +115,8 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
                             <span className="mt-1 block text-ink/85">{pr.project}</span>
                           )}
                         </li>
-                      ))}
+                        );
+                      })}
                     </ul>
                   </section>
                 )}
