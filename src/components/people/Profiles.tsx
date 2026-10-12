@@ -2,8 +2,9 @@
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Plus, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Plus, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { initials, photoOf, type Person } from "@/lib/people";
 import { cn, EASE_EXPO } from "@/lib/cn";
 
@@ -85,6 +86,41 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
                 </h2>
                 <p className="mt-4 text-xs text-brand label-text">{person.role}</p>
                 <p className="mt-10 text-lg leading-relaxed text-ink/80">{person.bio}</p>
+                <ProfileList title="Previous experience" items={person.experience} />
+                <ProfileList title="Education and qualifications" items={person.education} />
+                {person.projects && person.projects.length > 0 && (
+                  <section className="mt-10">
+                    <h3 className="text-[11px] text-brand label-text">Project profile</h3>
+                    <ul className="mt-4">
+                      {person.projects.map((pr) => (
+                        <li key={pr.role + pr.project} className="border-t border-ink/10 py-3 leading-relaxed">
+                          <span className="block text-[11px] text-ink/50 label-text">{pr.role}</span>
+                          {pr.caseStudy ? (
+                            <Link
+                              href={`/case-studies#${pr.caseStudy}`}
+                              onClick={close}
+                              className="group/cs mt-1 inline text-ink/85 underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:text-brand hover:decoration-brand"
+                            >
+                              {pr.project}
+                              <span className="sr-only"> (case study)</span>
+                              <ArrowRight
+                                aria-hidden
+                                className="ml-1.5 inline size-3.5 transition-transform duration-500 ease-expo group-hover/cs:translate-x-0.5"
+                              />
+                            </Link>
+                          ) : (
+                            <span className="mt-1 block text-ink/85">{pr.project}</span>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+                )}
+                {person.interests && (
+                  <p className="mt-10 border-t border-ink/10 pt-8 font-display text-xl italic leading-snug text-ink/70">
+                    {person.interests}
+                  </p>
+                )}
                 {person.linkedin && <LinkedIn href={person.linkedin} className="mt-10" />}
               </motion.div>
             </motion.aside>
@@ -92,6 +128,44 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
         )}
       </AnimatePresence>
     </OpenProfile.Provider>
+  );
+}
+
+function ProfileList({ title, items }: { title: string; items?: string[] }) {
+  if (!items?.length) return null;
+  return (
+    <section className="mt-10">
+      <h3 className="text-[11px] text-brand label-text">{title}</h3>
+      <ul className="mt-4">
+        {items.map((item) => (
+          <li key={item} className="border-t border-ink/10 py-3 leading-relaxed text-ink/80">
+            {item}
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/** Opens a person's full profile from cards rendered on the server. */
+export function ProfileButton({ person, className }: { person: Person; className?: string }) {
+  const open = useContext(OpenProfile);
+  return (
+    <button
+      type="button"
+      onClick={() => open(person)}
+      className={cn(
+        "group/pb inline-flex items-center gap-2 whitespace-nowrap text-[11px] text-ink transition-colors duration-300 label-text hover:text-brand",
+        className,
+      )}
+    >
+      View full profile
+      <span className="sr-only">: {person.name}</span>
+      <Plus
+        aria-hidden
+        className="-mt-[0.2em] size-3.5 transition-transform duration-500 ease-expo group-hover/pb:rotate-90"
+      />
+    </button>
   );
 }
 

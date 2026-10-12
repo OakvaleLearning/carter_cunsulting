@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Plus } from "lucide-react";
 import { CASE_STUDIES, type CaseStudy } from "@/lib/case-studies";
 import { PRACTICES, shortTitle } from "@/lib/content";
+import { teamFor } from "@/lib/people";
 import { cn, EASE_EXPO } from "@/lib/cn";
 
 const noop = () => () => {};
@@ -161,6 +162,7 @@ function Row({
   onToggle: () => void;
 }) {
   const panel = `${c.id}-panel`;
+  const team = teamFor(c.id);
   return (
     <>
       <h3>
@@ -242,6 +244,21 @@ function Row({
                   <dd className="mt-2 font-display text-lg leading-snug">{v}</dd>
                 </div>
               ))}
+              {team.length > 0 && (
+                <div className="col-span-2 border-t border-ink/10 pt-5 lg:col-span-1">
+                  <dt className="text-[10px] text-ink/50 label-text">Carter team</dt>
+                  <dd className="mt-3">
+                    <ul className="space-y-3">
+                      {team.map((m) => (
+                        <li key={m.name} className="leading-snug">
+                          <span className="block font-display text-lg">{m.name}</span>
+                          <span className="block text-sm text-ink/60">{m.role}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              )}
               <p className="col-span-2 border-t border-ink/10 pt-5 text-[10px] text-ink/45 label-text lg:col-span-1">
                 Project Profile {c.number}
               </p>
