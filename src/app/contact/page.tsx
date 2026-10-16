@@ -20,7 +20,7 @@ export default function Page() {
         title={<RotatingHeadline lines={CONTACT_HEADLINES} />}
         titleClassName="max-w-4xl"
         eyebrowClassName="font-semibold"
-        image="/images/contact-hero.jpg"
+        image="/images/contact-hero-lagos-bridge.jpg"
         intro={SUPPORTING}
       />
 
