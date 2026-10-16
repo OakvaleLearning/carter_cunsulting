@@ -1,6 +1,3 @@
-/** One line of a person's project profile; `caseStudy` is the matching case-study id, when there is one. */
-export type Project = { role: string; project: string; caseStudy?: string };
-
 export type Person = {
   name: string;
   role: string;
@@ -8,36 +5,12 @@ export type Person = {
   bio?: string;
   experience?: string[];
   education?: string[];
-  projects?: Project[];
   /** The closing personal line of the biography. */
   interests?: string;
   linkedin?: string;
 };
 
 export type Group = { id: string; title: string; people: Person[] };
-
-// Case studies (feature slugs or snapshot ids, see lib/case-studies.ts) that people's project profiles point to.
-const CS = {
-  id4d: "trust-at-national-scale",
-  plateau: "evidence-before-reform-in-plateau-state",
-  cloud: "national-framework-for-cloud-governance",
-  mreif: "structure-before-scale",
-  sapz: "transaction-advisory-services-for-the-kano-state-special-agro-industrial-processing-zone",
-  assets: "development-of-the-national-assets-registry",
-  pppCatalogue: "development-of-a-ppp-investment-catalogue-and-sector-focused-roadmap",
-  revenueDc: "creation-of-a-data-centre-for-collation-of-national-revenue",
-  newmap: "greenhouse-gas-inventories-for-newmap-activities",
-  lighthouse: "digital-infrastructure-for-vaids-and-tax-data-harmonization-analytics-and-apis",
-  bimms: "bimms",
-};
-
-const SAPZ = "Transaction Advisory Services, Kano State Special Agro-Industrial Processing Zone (SAPZ)";
-const PLATEAU = "Diagnostic Assessment of Healthcare Delivery System, Plateau State";
-const OAKS = "Market Feasibility Assessment for Project Oaks: GMP-Compliant Pharmaceutical Manufacturing Advisory";
-const NEWMAP_GHG = "GHG Inventories of NEWMAP Activities at Watershed, State and Federal Level";
-const PPP_CATALOGUE = "Development of PPP Investment Catalogue and Sector-Focused Roadmap";
-const IPSAS =
-  "Needs Assessment and Roadmap for the Implementation of International Public Sector Accounting Standards (IPSAS) & ERP Systems";
 
 const p = {
   adeniyi: {
@@ -59,22 +32,6 @@ const p = {
       "Project Management Professional (PMP), Project Management Institute",
       "Certified Information Systems Auditor® (CISA), ISACA",
     ],
-    projects: [
-      { role: "Project Lead", project: "Institutional Restructuring of the Ministry of Finance Incorporated (MOFI)" },
-      {
-        role: "Project Lead",
-        project: "Configuration and Deployment of the Budget Information Management & Monitoring System (BIMMS)",
-        caseStudy: CS.bimms,
-      },
-      { role: "Project Lead", project: PLATEAU, caseStudy: CS.plateau },
-      { role: "Project Lead", project: PPP_CATALOGUE, caseStudy: CS.pppCatalogue },
-      {
-        role: "Project Lead",
-        project: "Independent Verification Auditors for the Inventorisation of GHG Emissions of NEWMAP Intervention Sites",
-        caseStudy: CS.newmap,
-      },
-      { role: "Project Lead", project: IPSAS },
-    ],
     interests:
       "In his spare time, Frenzo enjoys the game of chess, cooking, quality time with his family and unwinding with action movies.",
     linkedin: "https://www.linkedin.com/in/drfrenzo/",
@@ -94,14 +51,6 @@ const p = {
       "B.Eng Electrical and Electronics Engineering, Federal University of Technology, Akure",
       "Project Management Professional (PMP), Project Management Institute",
     ],
-    projects: [
-      { role: "Digital Infrastructure Adviser", project: "National Cloud Policy", caseStudy: CS.cloud },
-      { role: "Technical Verification Expert", project: "ID4D Independent Verification", caseStudy: CS.id4d },
-      { role: "ICT Infrastructure Lead", project: "National Revenue Data Centre", caseStudy: CS.revenueDc },
-      { role: "Systems Configuration Lead", project: "BIMMS for Government-Owned Enterprises", caseStudy: CS.bimms },
-      { role: "Senior Consultant", project: NEWMAP_GHG, caseStudy: CS.newmap },
-      { role: "Technical Lead", project: "Project Lighthouse", caseStudy: CS.lighthouse },
-    ],
     interests: "Outside of work, Tayo enjoys watching football, mentoring young people, and public speaking.",
     linkedin: "https://linkedin.com/in/tayo-falana-b50905248",
   },
@@ -120,7 +69,6 @@ const p = {
       "BEng Electrical and Computer Engineering, Federal University of Technology Minna",
       "Certifications in AWS, Google Cloud, project management and data governance",
     ],
-    projects: [{ role: "Technical Consultant", project: "National Sovereign Cloud Initiative (NITDA)" }],
     interests: "David enjoys music and creative projects outside work, as well as spending time with family.",
     linkedin: "https://linkedin.com/in/a9090z",
   },
@@ -144,9 +92,22 @@ export const PRACTICE_TEAMS: Group[] = [
           "BTech Industrial Mathematics, Federal University of Technology Minna",
           "Member, Chartered Institute of Project Management of Nigeria (CIPMN)",
         ],
-        projects: [{ role: "Infrastructure Team Lead", project: SAPZ, caseStudy: CS.sapz }],
         interests: "In his personal time, Ezra enjoys playing home video games on PS4.",
         linkedin: "https://www.linkedin.com/in/ezra-ochijenu-1a0015ba",
+      },
+      {
+        name: "Morolake Onamusi",
+        role: "Consultant, Environment Advisory",
+        bio: "Morolake has more than a decade of experience across technology, education, data and consulting. She joined Carter in 2017 as a Data Analyst and is now a Consultant in Environment Advisory, where she conducts independent verification and evidence review for public-sector and development programmes.",
+        experience: ["Data Manager, Educate Nigeria Foundation", "Installation and Support Executive, CHAMS PLC"],
+        education: [
+          "Mini-MBA, International Business Management Institute (IBMI)",
+          "Human Resource Management, International Business Management Institute (IBMI)",
+          "BSc Computer Science, University of Lagos",
+          "Computer Forensics Associate, Computer Forensics in Nigeria",
+        ],
+        interests: "When she's not working, Rolake enjoys karaoke, playing games and writing.",
+        linkedin: "https://www.linkedin.com/in/morolake-onamusi/",
       },
     ],
   },
@@ -160,17 +121,6 @@ export const PRACTICE_TEAMS: Group[] = [
         bio: "Abraham has more than a decade of experience in management consulting, institutional reform and digital transformation. He joined Carter in 2019 and works with government and development agencies on public finance reform, strategy and programme delivery.",
         experience: ["Strategic Lead, Development and Management Consultancy, McGeorge Consulting"],
         education: ["B.Eng Mechanical Engineering, University of Ilorin", "MBA, University of Ilorin"],
-        projects: [
-          {
-            role: "Technical Implementation Consultant",
-            project: "Project Lighthouse (pilot phase)",
-            caseStudy: CS.lighthouse,
-          },
-          { role: "Consultant", project: NEWMAP_GHG, caseStudy: CS.newmap },
-          { role: "Consultant", project: "Oil and Gas E&P Cost Management: Capacity Enhancement for NPDC Staff" },
-          { role: "Lead Consultant", project: "Development of the NASENI Strategic Roadmap" },
-          { role: "Project Lead", project: "Capacity Enhancement Training for the NASENI Development Institutes" },
-        ],
         interests:
           "Away from work, Abraham enjoys playing golf, networking and celebrating life with good company.",
         linkedin: "https://www.linkedin.com/in/attehabraham/",
@@ -181,13 +131,6 @@ export const PRACTICE_TEAMS: Group[] = [
         bio: "Emmanuella works in strategy consulting and public policy, delivering programmes across healthcare, agriculture, education and private sector development. She joined Carter in 2025 and works on healthcare, agriculture and verification engagements.",
         experience: ["Researcher, Civic Hive Youth Research Network"],
         education: ["BSc Political Science, University of Lagos"],
-        projects: [
-          {
-            role: "Workstream Lead",
-            project: `${SAPZ}: sesame market feasibility and value chain assessment`,
-            caseStudy: CS.sapz,
-          },
-        ],
         interests:
           "When she's not at work, Emmanuella enjoys reading, volunteering and designing UI/UX interfaces.",
         linkedin: "https://www.linkedin.com/in/emmanuella-arikpo-a8796b3a0/",
@@ -202,11 +145,6 @@ export const PRACTICE_TEAMS: Group[] = [
           "B.L., Nigerian Law School",
           "LLB, University of Leicester",
           "Member, Nigerian Bar Association",
-        ],
-        projects: [
-          { role: "Legal Expert", project: "ID4D Independent Verification", caseStudy: CS.id4d },
-          { role: "Legal Expert", project: "ICRC Concession Agreements Review" },
-          { role: "Legal Expert", project: "Fintech Acquisition" },
         ],
         interests: "At leisure, Rere enjoys playing board games, swimming, reading, and travelling.",
         linkedin: "https://linkedin.com/in/rere-oye-9a06a4164",
@@ -231,11 +169,6 @@ export const PRACTICE_TEAMS: Group[] = [
           "BSc Economics, University of Ibadan",
           "CFA Program Level 2 candidate, CFA Institute",
         ],
-        projects: [
-          { role: "Financial Viability Expert", project: OAKS },
-          { role: "Financial Viability Expert", project: SAPZ, caseStudy: CS.sapz },
-          { role: "Finance Expert", project: "Fintech Acquisition" },
-        ],
         interests: "To recharge, Toluwanimi enjoys playing & watching tennis, football and movies.",
         linkedin: "https://www.linkedin.com/in/toluwanimi-adeyefa-846ba669/",
       },
@@ -248,15 +181,6 @@ export const PRACTICE_TEAMS: Group[] = [
           "Accountant, Financial Operations, Unforgettable Moment Shortlet Limited",
         ],
         education: ["BSc Accounting, University of Jos", "Member, Association of Chartered Accountants"],
-        projects: [
-          {
-            role: "Senior Consultant",
-            project: `${SAPZ}: investment, PPP and SPV structuring`,
-            caseStudy: CS.sapz,
-          },
-          { role: "Financial Model Expert", project: PLATEAU, caseStudy: CS.plateau },
-          { role: "Financial Analyst", project: OAKS },
-        ],
         interests: "Beyond work, Emmanuel enjoys playing football, hiking and reading.",
         linkedin: "https://www.linkedin.com/in/emmanuel-anthony-791446186/",
       },
@@ -284,11 +208,6 @@ export const PRACTICE_TEAMS: Group[] = [
           "Financial Management Diploma, ACCA UK",
           "MBBS, Olabisi Onabanjo University",
         ],
-        projects: [
-          { role: "Healthcare Specialist", project: PLATEAU, caseStudy: CS.plateau },
-          { role: "Consultant", project: "Corporate Health Assessment Programmes" },
-          { role: "Clinical Lead", project: "Tele-health Pilot for Rural Clinics" },
-        ],
         interests:
           "When she's off the clock, Funke enjoys reading legal thrillers, watching documentaries and period dramas, travelling, bonding with her kids, cooking, learning Italian and piano.",
         linkedin: "https://www.linkedin.com/in/fonamusi/",
@@ -302,21 +221,6 @@ export const PRACTICE_TEAMS: Group[] = [
           "MA Communication and Language Arts, University of Ibadan",
           "BA Communication Arts, Bowen University",
           "Certificate in Digital Marketing, Institute of Digital Marketing",
-        ],
-        projects: [
-          { role: "Market Feasibility Expert", project: SAPZ, caseStudy: CS.sapz },
-          {
-            role: "M&E Expert",
-            project: "Independent Verification Agent for Nigeria Digital Identification for Development (ID4D)",
-            caseStudy: CS.id4d,
-          },
-          { role: "Team Lead", project: PLATEAU, caseStudy: CS.plateau },
-          {
-            role: "Media & Communications Expert",
-            project: "Establishment & Restructuring of the Ministry of Finance Incorporated (MOFI)",
-          },
-          { role: "Team Member", project: "Sovereign Cloud Policy & Office for Nigerian Content (ONC)" },
-          { role: "Project Lead", project: OAKS },
         ],
         interests: "For balance, Adeola enjoys watching movies & series, quality rest and wellness.",
         linkedin: "https://www.linkedin.com/in/adeola-olaleye-b60604161/",
@@ -334,33 +238,9 @@ export const PRACTICE_TEAMS: Group[] = [
           "Master's in Financial Mathematics, University of Abuja",
           "Bachelor's in Mathematics and Statistics, Kogi State University",
         ],
-        projects: [{ role: "Value Chain Analyst", project: SAPZ, caseStudy: CS.sapz }],
         interests:
           "Beyond work, Elijah enjoys leading conversations on agribusiness & social impact, travelling, and going on field trips.",
         linkedin: "https://www.linkedin.com/in/elijah-sunday-477b341b3/",
-      },
-      {
-        name: "Morolake Onamusi",
-        role: "Consultant, Environment Advisory",
-        bio: "Morolake has more than a decade of experience across technology, education, data and consulting. She joined Carter in 2017 as a Data Analyst and is now a Consultant in Environment Advisory, where she conducts independent verification and evidence review for public-sector and development programmes.",
-        experience: ["Data Manager, Educate Nigeria Foundation", "Installation and Support Executive, CHAMS PLC"],
-        education: [
-          "Mini-MBA, International Business Management Institute (IBMI)",
-          "Human Resource Management, International Business Management Institute (IBMI)",
-          "BSc Computer Science, University of Lagos",
-          "Computer Forensics Associate, Computer Forensics in Nigeria",
-        ],
-        projects: [
-          { role: "Data Analyst", project: "GHG Inventory for NEWMAP", caseStudy: CS.newmap },
-          {
-            role: "Trainer",
-            project: "Budget Information Management and Monitoring Software (BIMMS)",
-            caseStudy: CS.bimms,
-          },
-          { role: "Executive Assistant to the COO", project: "Project Lighthouse (VAIDS)", caseStudy: CS.lighthouse },
-        ],
-        interests: "When she's not working, Rolake enjoys karaoke, playing games and writing.",
-        linkedin: "https://www.linkedin.com/in/morolake-onamusi/",
       },
       {
         name: "Caleb Adejoh",
@@ -368,15 +248,6 @@ export const PRACTICE_TEAMS: Group[] = [
         bio: "Caleb is a consultant with a background in pharmacy, data analysis and digital product development. He joined Carter in 2026 and works on business development and health sector engagements.",
         experience: ["Pharmacist, Yellowmed Pharmacy", "Pharmacy Intern, National Assembly of Nigeria"],
         education: ["BSc Pharmacy, Madonna University"],
-        projects: [
-          { role: "Market Strategy Consultant", project: OAKS },
-          {
-            role: "ESS & M&E Consultant",
-            project: "Kano Special Agro-Industrial Processing Zones (SAPZ) Programme",
-            caseStudy: CS.sapz,
-          },
-          { role: "Healthcare Diagnostic Consultant", project: PLATEAU, caseStudy: CS.plateau },
-        ],
         interests: "Caleb's hobbies and interests include playing chess, gardening, reading, and writing poetry.",
         linkedin: "https://www.linkedin.com/in/caleb-adejoh-9a729b203",
       },
@@ -392,14 +263,6 @@ export const PRACTICE_TEAMS: Group[] = [
           "MBA candidate, Ahmadu Bello University",
           "B.Eng Aeronautical and Astronautical Engineering, Kwara State University",
         ],
-        projects: [
-          { role: "Data Analyst", project: "ID4D Independent Verification", caseStudy: CS.id4d },
-          { role: "Co-Lead, Infrastructure Workstream", project: "SAPZ Kano", caseStudy: CS.sapz },
-          {
-            role: "Project Manager",
-            project: "Development of an Integrated Management Information System (MIS) for Kuntaur Area Council, The Gambia",
-          },
-        ],
         interests: "In his spare time, Joshua enjoys jogging and hangouts.",
         linkedin: "https://www.linkedin.com/in/daniel-joshua-39789110a/",
       },
@@ -408,10 +271,6 @@ export const PRACTICE_TEAMS: Group[] = [
         role: "Consultant, Sector Advisory",
         bio: "Oluoma is a consultant with a background in electrical engineering, working across infrastructure, public sector reform and development finance. Oluoma joined Carter in 2026 and supports technical assessments, feasibility studies and due diligence for government and development-sector clients.",
         education: ["Electrical Engineering, University of Nigeria, Nsukka"],
-        projects: [
-          { role: "Consultant", project: `${SAPZ}: technical and feasibility assessment`, caseStudy: CS.sapz },
-          { role: "Consultant", project: "Fintech Acquisition Due Diligence" },
-        ],
         interests: "When he's off the clock, Oluoma enjoys playing football.",
         linkedin: "https://www.linkedin.com/in/oluoma-ezionye-eboh-707a121a0/",
       },
@@ -422,8 +281,8 @@ export const PRACTICE_TEAMS: Group[] = [
 export const ASSOCIATES: Person[] = [
   {
     name: "Joshua Ofiwe",
-    role: "Technical Adviser",
-    bio: "Joshua has more than eight years of experience in transaction advisory and development finance. As a Technical Adviser at Carter since 2023, he supports multilateral-funded programmes for government institutions and development finance institutions.",
+    role: "Technical Advisor",
+    bio: "Joshua has more than eight years of experience in transaction advisory and development finance. As a Technical Advisor at Carter, he has supported multilateral-funded programmes for government institutions and development finance institutions.",
     experience: ["IFRS Reporting Officer, Fidelity Bank", "Account Relationship Manager, Fidelity Bank"],
     education: [
       "BSc Accounting, University of Abuja",
@@ -431,81 +290,43 @@ export const ASSOCIATES: Person[] = [
       "Financial Modeling and Valuation Analyst (FMVA)",
       "Project Finance Bootcamp, BFI and CFA Society Nigeria",
     ],
-    projects: [
-      { role: "Technical Adviser", project: SAPZ, caseStudy: CS.sapz },
-      { role: "Technical Adviser", project: "NASENI Finance and Accounts Automation" },
-      { role: "Programme Support", project: "Operationalisation of MREIF", caseStudy: CS.mreif },
-    ],
     interests:
       "To unwind, Joshua enjoys working out, watching movies, reading, listening to music, and spending time with his family.",
     linkedin: "https://www.linkedin.com/in/joshuaofiwe/",
   },
   {
     name: "Abiola Adebiyi",
-    role: "Technical Adviser",
-    bio: "Abiola has more than five years of experience in programme delivery, development finance and independent verification. As a Technical Adviser at Carter, Abiola supports World Bank-backed and other public sector programmes.",
+    role: "Technical Advisor",
+    bio: "Abiola has more than five years of experience in programme delivery, development finance and independent verification. As a Technical Advisor at Carter, Abiola has supported World Bank-backed and other public sector programmes.",
     experience: [
       "Forensic Accountant, General Compliance Ltd",
       "Technical Support Assistant, Asset Management Corporation of Nigeria (AMCON)",
     ],
     education: [
-      "MSc Sustainable Development, University of Sussex",
+      "MSc Sustainable Development, University\u00a0of\u00a0Sussex",
       "BSc Accounting and Management, University of Essex",
-    ],
-    projects: [
-      {
-        role: "Technical Assistant",
-        project: "ID4D Independent Verification (North Central Zone)",
-        caseStudy: CS.id4d,
-      },
-      { role: "Project Manager", project: SAPZ, caseStudy: CS.sapz },
     ],
     interests: "In her spare time, Abiola enjoys playing badminton and flute.",
     linkedin: "https://www.linkedin.com/in/abiolaadebiyi/",
   },
   {
     name: "Olumide Famuyide",
-    role: "Technical Adviser",
-    bio: "Olumide has more than twenty years of experience in digital transformation and enterprise technology across enterprise software, procurement and aviation operations. As a Technical Adviser at Carter, he supports large-scale transformation projects for public and private sector clients in West and Central Africa.",
+    role: "Technical Advisor",
+    bio: "Olumide has more than twenty years of experience in digital transformation and enterprise technology across enterprise software, procurement and aviation operations. As a Technical Advisor at Carter, he has supported large-scale transformation projects in West and Central Africa.",
     experience: [
       "Project Management Lead, West and Central Africa, SITA",
       "Territory Account Manager, West Africa, Hitachi Data Systems",
       "Application Sales Representative, Public Sector, Oracle",
     ],
     education: [
-      "MSc Information Technology with Business and Management, University of Sussex",
+      "MSc Information Technology with Business and Management, University\u00a0of\u00a0Sussex",
       "BSc Civil Engineering, University of Lagos",
       "Project Management Professional (PMP), Project Management Institute",
-    ],
-    projects: [
-      { role: "Technical Adviser", project: SAPZ, caseStudy: CS.sapz },
-      { role: "Technical Adviser", project: "National Assets Registry", caseStudy: CS.assets },
-      { role: "Technical Adviser", project: PPP_CATALOGUE, caseStudy: CS.pppCatalogue },
-      {
-        role: "Technical Adviser",
-        project: "Independent Verification Auditors for the Inventorisation of GHG Emissions of NEWMAP Intervention Sites",
-        caseStudy: CS.newmap,
-      },
-      { role: "Technical Adviser", project: IPSAS },
     ],
     interests: "In his leisure time, Olumide enjoys the game of cricket, rokeby, tennis, and reading.",
     linkedin: "https://www.linkedin.com/in/olumide-famuyide-a879714/",
   },
 ];
-
-/** Everyone on the site, each once. */
-export const ALL_PEOPLE: Person[] = [...LEADERSHIP_TEAM, ...PRACTICE_TEAMS.flatMap((t) => t.people), ...ASSOCIATES].filter(
-  (person, i, all) => all.indexOf(person) === i,
-);
-
-/** The Carter people whose project profiles reference a case study, with their role on it. */
-export const teamFor = (caseStudyId: string) =>
-  ALL_PEOPLE.flatMap((person) =>
-    (person.projects ?? [])
-      .filter((pr) => pr.caseStudy === caseStudyId)
-      .slice(0, 1)
-      .map((pr) => ({ name: person.name, role: pr.role })),
-  );
 
 export const EXPERTISE_AREAS = [
   "Strategy & Public Policy",
@@ -543,6 +364,8 @@ const PHOTOS = new Set([
   "oluoma-ezionye-eboh",
   "rere-oye",
   "temitayo-falana",
+  "toluwanimi-adeyefa",
+  "emmanuel-anthony",
 ]);
 
 export const photoOf = (name: string) => {

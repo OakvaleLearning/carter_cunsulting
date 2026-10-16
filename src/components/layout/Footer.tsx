@@ -44,12 +44,12 @@ export function Footer() {
 
         <div className="mt-20 border-t border-white/10 pt-10">
           <p className="text-xs text-brand-light label-text">Offices</p>
-          <ul className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
             {OFFICES.map((o) => (
               <li key={o.city}>
                 <address className="not-italic">
                   <span className="block font-display text-2xl text-white">{o.city}</span>
-                  <span className="mt-2 block text-sm leading-relaxed">{o.address}</span>
+                  {o.address && <span className="mt-2 block text-sm leading-relaxed">{o.address}</span>}
                 </address>
               </li>
             ))}

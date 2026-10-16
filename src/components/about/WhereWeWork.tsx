@@ -25,6 +25,16 @@ const AFRICA: Feature<Polygon> = {
   },
 };
 
+// The contiguous United States, so its zoomed view isn't stretched to take in Alaska and Hawaii.
+const CONTIGUOUS_US: Feature<Polygon> = {
+  type: "Feature",
+  properties: {},
+  geometry: {
+    type: "Polygon",
+    coordinates: [[[-125, 24], [-125, 50], [-66, 50], [-66, 24], [-125, 24]]],
+  },
+};
+
 function countries(topo: unknown) {
   const t = topo as Topology<{ countries: GeometryCollection }>;
   return (feature(t, t.objects.countries) as FeatureCollection).features;
@@ -52,8 +62,9 @@ function buildMap(): MapData {
 
   // Every country with an office gets a label (centred above its outline) and its own zoomed view.
   const covered = [...new Set(OFFICES.map((o) => o.country))].flatMap((name) => {
-    const f = features.find((c) => c.properties?.name === name);
-    if (!f) return [];
+    const found = features.find((c) => c.properties?.name === name);
+    if (!found) return [];
+    const f = name === "United States of America" ? CONTIGUOUS_US : found;
     const [[x0, y0], [x1]] = path.bounds(f);
     return [{ name, f, label: { name, x: (x0 + x1) / 2, y: y0 } }];
   });
@@ -63,7 +74,7 @@ function buildMap(): MapData {
     views: {
       world: { x: 0, y: top, w: WIDTH, h: bottom - top },
       africa: box(AFRICA, 0.04),
-      ...Object.fromEntries(covered.map((c) => [c.name, box(c.f, 0.35)])),
+      ...Object.fromEntries(covered.map((c) => [c.name, box(c.f, c.f === CONTIGUOUS_US ? 0.12 : 0.35)])),
     },
     countries: covered.map((c) => c.label),
     markers: WORK_LOCATIONS.map((l) => ({ id: l.id, ...point(l.coords) })),

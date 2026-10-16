@@ -59,7 +59,6 @@ export type Snapshot = {
   group: Practice;
   body: string;
   result?: string;
-  developmentLink: string;
   /** Part of the "Earlier work · 2012 to 2016" set. */
   earlier?: boolean;
 };
@@ -83,7 +82,7 @@ const ALL_FEATURES: Feature[] = [
     year: 2025,
     period: "2025",
     client: "National Identity Management Commission (NIMC) and the World Bank",
-    role: "Independent Verification Agent, in joint venture with the Microflex Consortium",
+    role: "Independent Verification Agent (Joint Venture with the Microflex Consortium)",
     standfirst:
       "For millions of Nigerians, a national identity number is what opens a bank account, a mobile line or access to social support. When World Bank funding for the national ID programme was tied to results, those results needed independent checking. Carter was the independent auditor engaged to verify that more than 110 million identity records were issued to global cybersecurity and data privacy standards in every state.",
     proof: [
@@ -152,7 +151,7 @@ const ALL_FEATURES: Feature[] = [
     year: 2026,
     period: "2026",
     client: "Plateau State Government, through the State Ministry of Health and Social Services",
-    role: "Independent, ground-truth diagnostic of the state's healthcare delivery system",
+    role: "Independent Diagnostic Consultant",
     standfirst:
       "Can a resident reach a clinic? Will the right health worker be there, and essential medicines in stock? Before investing in reform, Plateau State asked Carter to conduct an independent performance assessment of its health system, by following patients through the system.",
     proof: [{ value: "10-year", label: "Phased implementation roadmap built on the evidence" }],
@@ -225,7 +224,7 @@ const ALL_FEATURES: Feature[] = [
     year: 2026,
     period: "2026",
     client: "Plateau State Government, through the State Ministry of Health and Social Services",
-    role: "Digital health architecture and implementation blueprint, with a working demonstration of the Performance Intelligence Dashboard",
+    role: "Digital Health Architecture Consultant",
     standfirst:
       "Plateau State wanted records that follow the patient, specialist care that reaches beyond the big hospitals, and a clear view of how every facility is performing. Carter designed a phased digital architecture to get there, and built its first component, the Performance Intelligence Dashboard, during the assignment.",
     proof: [
@@ -294,7 +293,7 @@ const ALL_FEATURES: Feature[] = [
     period: "2025",
     client:
       "Federal Ministry of Communications, Innovation and Digital Economy, through the National Information Technology Development Agency (NITDA)",
-    role: "Development of the national cloud policy, from diagnostic through validation",
+    role: "National Cloud Policy Consultant",
     standfirst:
       "Nigeria's cloud requirements were spread across laws, regulations and sector circulars. Carter helped bring them into a single national policy, supported by a maturity model, implementation roadmap and financing approach.",
     proof: [
@@ -360,7 +359,7 @@ const ALL_FEATURES: Feature[] = [
     group: "programme-project-delivery",
     related: ["programme-project-delivery", "financial-transaction-advisory"],
     client: "Ministry of Finance Incorporated, MOFI Real Estate Investment Fund (MREIF)",
-    role: "Programme support to the Programme Management Unit through pre-funding, SEC registration and operationalisation",
+    role: "Programme Support Consultant",
     standfirst:
       "The Ministry of Finance Incorporated (MOFI) needed to design transaction, governance and operating arrangements for its landmark ₦1 trillion mortgage fund. Carter supported the Programme Management Unit from planning to implementation, unlocking for the first time affordable home ownership for Nigerians with mortgages of up to 20 years at a fixed interest rate of just 9.75% per annum.",
     proof: [
@@ -425,14 +424,13 @@ export const SNAPSHOTS: Snapshot[] = [
   {
     id: "transaction-advisory-services-for-the-kano-state-special-agro-industrial-processing-zone",
     title: "Preparing Kano's Agro-Industrial Zone for Investment",
-    client: "Special Agro-Industrial Processing Zones Programme",
+    client: "Special Agro-Industrial Processing Zones (SAPZ) Programme",
     period: "2025 to present",
     year: 2025,
-    role: "Transaction adviser, in joint venture with Ernst and Young Limited",
+    role: "Transaction Adviser (Joint Venture with Ernst & Young Limited)",
     practice: "Financial & Transaction Advisory",
     group: "financial-transaction-advisory",
     body: "Kano's Special Agro-Industrial Processing Zone is being prepared for structured investment. Carter, with EY, is advising the National Coordination Office on the commercial and financial assessment, transaction structure, due diligence and investor-facing analysis needed to take the project to market.",
-    developmentLink: "Agro-industrial development and private investment.",
   },
   {
     id: "development-of-the-national-assets-registry",
@@ -440,11 +438,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Ministry of Finance Incorporated",
     period: "2023",
     year: 2023,
-    role: "Digital registry consultant",
+    role: "Digital Registry Consultant",
     practice: "Technology & Digital Transformation",
     group: "technology-digital-transformation",
     body: "The Ministry of Finance Incorporated (MOFI) needed a clearer view of the Federal Government's assets across participating entities. In six months, Carter built a digital registry covering ownership, classification, status and performance, including the underlying data standards, capture and validation workflows, portfolio reporting, documentation and knowledge transfer.",
-    developmentLink: "Transparent management of public assets.",
   },
   {
     id: "investment-grade-asset-valuation-and-due-diligence-for-the-mofi-energy-and-extractives-portfolio",
@@ -452,11 +449,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Federal Ministry of Finance, Budget and National Planning (MOFI portfolio)",
     period: "2023",
     year: 2023,
-    role: "Valuation and due diligence consultant",
+    role: "Valuation and Due Diligence Consultant",
     practice: "Financial & Transaction Advisory",
     group: "financial-transaction-advisory",
     body: "MOFI needed an investment-grade view of its energy and extractives portfolio and the risks associated with it. Over six months, Carter combined valuation with financial, legal, operational and market due diligence, documenting assumptions and limitations so the analysis could support investment, restructuring and strategic decisions.",
-    developmentLink: "Stewardship of national assets and investment in the energy sector.",
   },
   {
     id: "national-strategy-for-scaling-up-the-sanitation-market-in-selected-states",
@@ -465,11 +461,10 @@ export const SNAPSHOTS: Snapshot[] = [
       "Federal Ministry of Water Resources, Sustainable Urban and Rural Water Supply, Sanitation and Hygiene (SURWASH) Programme (World Bank)",
     period: "2022",
     year: 2022,
-    role: "Strategy consultant",
+    role: "Strategy Consultant",
     practice: "Sector Advisory",
     group: "sector-advisory",
     body: "Expanding sanitation required more than public infrastructure. Over nine months, Carter developed a national strategy for scaling the sanitation market in selected states, mapping institutions, providers, financiers and communities; assessing barriers to availability, affordability and adoption; and developing a behaviour-change framework, private-sector participation options and a phased roadmap.",
-    developmentLink: "Access to improved sanitation for households and communities (SDG 6).",
   },
   {
     id: "audit-of-existing-public-private-partnership-and-concession-contracts",
@@ -477,11 +472,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Fiscal Governance and Institutions Project (World Bank)",
     period: "2022",
     year: 2022,
-    role: "PPP and concession audit consultant",
+    role: "PPP and Concession Audit Consultant",
     practice: "Financial & Transaction Advisory",
     group: "financial-transaction-advisory",
     body: "The Federal Government needed a clearer view of how its public-private partnership (PPP) and concession agreements were performing. Over six months, Carter compiled the portfolio, reviewed contractual obligations and milestones, assessed performance and compliance, considered fiscal, commercial, legal and governance risks, and identified gaps and unresolved obligations requiring action.",
-    developmentLink: "Accountability in public contracts and infrastructure delivery.",
   },
   {
     id: "development-of-a-ppp-investment-catalogue-and-sector-focused-roadmap",
@@ -489,11 +483,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Infrastructure Concession Regulatory Commission",
     period: "2022",
     year: 2022,
-    role: "PPP advisory consultant",
+    role: "PPP Advisory Consultant",
     practice: "Financial & Transaction Advisory",
     group: "financial-transaction-advisory",
     body: "The Infrastructure Concession Regulatory Commission (ICRC) needed an investor-oriented view of the country's PPP pipeline. Carter developed an investment catalogue and sector roadmaps by reviewing projects, organising them by sector, maturity and investment potential, preparing concise project information, validating it with public-sector stakeholders and sequencing preparation priorities.",
-    developmentLink: "Mobilising private capital for public infrastructure.",
   },
   {
     id: "creation-of-a-data-centre-for-collation-of-national-revenue",
@@ -501,11 +494,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Budget Office of the Federation",
     period: "2022",
     year: 2022,
-    role: "Data centre and digital infrastructure consultant",
+    role: "Data Centre and Digital Infrastructure Consultant",
     practice: "Technology & Digital Transformation",
     group: "technology-digital-transformation",
     body: "The National Budget Portal depends on reliable data from multiple revenue and expenditure sources. Carter designed and installed the data-centre and warehousing infrastructure, structured the source data, secured access, integrated data from the States Fiscal Transparency, Accountability and Sustainability (SFTAS) programme and other Federal Government sources into the Portal, and trained designated staff to operate the environment.",
-    developmentLink: "Fiscal transparency and credible national budgeting.",
   },
   {
     id: "modern-skills-training-for-effective-civil-service-delivery",
@@ -513,11 +505,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Gombe State Government",
     period: "2022",
     year: 2022,
-    role: "Training consultant",
+    role: "Training Consultant",
     practice: "Programme & Project Delivery (capacity building)",
     group: "programme-project-delivery",
     body: "Gombe State needed practical skills development for staff supporting day-to-day administration. Carter assessed capability needs, developed materials around the officers' actual duties, delivered training through demonstrations and exercises, assessed learning and recommended measures to sustain the gains.",
-    developmentLink: "Better public service delivery at state level.",
   },
   {
     id: "greenhouse-gas-inventories-for-newmap-activities",
@@ -526,11 +517,10 @@ export const SNAPSHOTS: Snapshot[] = [
       "Nigeria Erosion and Watershed Management Project (NEWMAP), funded by the World Bank, Global Environment Facility and Special Climate Change Fund",
     period: "2021",
     year: 2021,
-    role: "Joint venture consultant with PwC Nigeria",
+    role: "Joint Venture Consultant with PwC Nigeria",
     practice: "Sector Advisory",
     group: "sector-advisory",
     body: "NEWMAP needed a consistent way to quantify the greenhouse gas emissions associated with its activities. Over eight months, Carter and PwC Nigeria developed inventories across watershed, state and federal levels, identified emission sources, compiled activity data, quantified emissions and documented assumptions and limitations.",
-    developmentLink: "Climate action and erosion management (SDG 13).",
   },
   {
     id: "digital-infrastructure-for-vaids-and-tax-data-harmonization-analytics-and-apis",
@@ -538,11 +528,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Federal Ministry of Finance (Project Lighthouse Phase II)",
     period: "2021",
     year: 2021,
-    role: "Digital infrastructure and data analytics consultant",
+    role: "Digital Infrastructure and Data Analytics Consultant",
     practice: "Technology & Digital Transformation",
     group: "technology-digital-transformation",
     body: "Project Lighthouse Phase II required tax information from different systems to be brought into a common environment. Carter developed the digital infrastructure to harmonise and normalise data from the Voluntary Assets and Income Declaration Scheme (VAIDS) and other tax sources, with analytics for revenue intelligence, secure data connections (APIs) between authorised institutions, and the documentation, testing support and handover needed for operation.",
-    developmentLink: "Domestic revenue mobilisation.",
   },
   {
     id: "bimms",
@@ -550,23 +539,21 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Budget Office of the Federation, Fiscal Governance and Institutions Project (World Bank)",
     period: "2020",
     year: 2020,
-    role: "Technology implementation consultant",
+    role: "Technology Implementation Consultant",
     practice: "Technology & Digital Transformation",
     group: "technology-digital-transformation",
     body: "The Budget Office needed a system for collecting, reviewing and monitoring budgets submitted by government-owned enterprises. In 12 weeks, Carter configured and deployed the budget monitoring system (BIMMS), including hosting, user roles and workflows, an approved data connection (API) for the accounting workstream, testing, deployment and user orientation.",
-    developmentLink: "Fiscal oversight of government-owned enterprises.",
   },
   {
     id: "implementation-of-an-intranet-portal-and-content-management-system",
-    title: "An Intranet in Fourteen Days",
+    title: "Connecting Public Sector Employees Across a Government Department",
     client: "Budget Office of the Federation",
     period: "2019",
     year: 2019,
-    role: "Technology implementation consultant",
+    role: "Technology Implementation Consultant",
     practice: "Technology & Digital Transformation",
     group: "technology-digital-transformation",
     body: "The Budget Office needed an internal portal within a short delivery window. Carter implemented its intranet and content management system in fourteen days, covering licensing, configuration, information structure and navigation, access controls, priority-content migration and staff orientation.",
-    developmentLink: "Institutional efficiency in public administration.",
   },
   {
     id: "institutional-capacity-assessment-and-siftas-implementation-support-for-sokoto-state",
@@ -574,11 +561,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Sokoto State Ministry of Finance (World Bank)",
     period: "2019",
     year: 2019,
-    role: "Consortium consultant, SUSMAN Consortium",
+    role: "Consortium Consultant, SUSMAN Consortium",
     practice: "Strategy & Public Policy Advisory",
     group: "strategy-public-policy",
     body: "Sokoto's access to performance-based funding depended on progress across several areas of public financial management. As part of the SUSMAN Consortium, Carter assessed institutional capacity against programme requirements and supported reforms covering budgeting, audited accounts, revenue, debt, payroll, procurement and arrears.",
-    developmentLink: "Fiscal transparency and accountability at state level.",
   },
   {
     id: "gap-analysis-of-ict-needs-of-nigerian-universities-and-mdas",
@@ -586,11 +572,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "National Information Technology Development Agency",
     period: "2016",
     year: 2016,
-    role: "ICT assessment consultant",
+    role: "ICT Assessment Consultant",
     practice: "Technology & Digital Transformation",
     group: "technology-digital-transformation",
     body: "Before investing in technology, Nigerian universities and government ministries, departments and agencies (MDAs) needed a clearer view of their priority gaps. Over three months, Carter assessed infrastructure, systems, connectivity, skills and institutional capacity against required services, then ranked gaps and dependencies and proposed phased recommendations.",
-    developmentLink: "Digital infrastructure and skills in public institutions.",
     earlier: true,
   },
   {
@@ -599,11 +584,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Budget Office of the Federation",
     period: "2016",
     year: 2016,
-    role: "National training consultant",
+    role: "National Training Consultant",
     practice: "Programme & Project Delivery (capacity building)",
     group: "programme-project-delivery",
     body: "The Federal Government was introducing a new approach to budget preparation and needed capability across its institutions. Carter trained budget officers from more than 850 Federal Government ministries, departments and agencies across the six geopolitical zones to prepare the 2017 budget using the Zero Based Budgeting web application. The work included guided exercises and documentation of implementation issues for follow-up.",
-    developmentLink: "Credible budget preparation across Federal Government institutions.",
     earlier: true,
   },
   {
@@ -612,11 +596,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Budget Office of the Federation",
     period: "2016",
     year: 2016,
-    role: "Application implementation consultant",
+    role: "Application Implementation Consultant",
     practice: "Technology & Digital Transformation",
     group: "technology-digital-transformation",
     body: "The Federal Government's move to zero-based budgeting required a digital system for preparing, reviewing and consolidating submissions. Carter configured and deployed a compliant web application covering workflows, controls, digital templates, user roles and review steps, followed by testing, deployment and user support.",
-    developmentLink: "A more structured and transparent national budget process.",
     earlier: true,
   },
   {
@@ -625,11 +608,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "Federal Ministry of Environment",
     period: "2015",
     year: 2015,
-    role: "Strategic review consultant",
+    role: "Strategic Review Consultant",
     practice: "Strategy & Public Policy Advisory",
     group: "strategy-public-policy",
     body: "The Ministry needed an independent assessment of its activities and how closely they aligned with its mandate. In four weeks, Carter reviewed plans and programme records, examined institutional arrangements and coordination, consulted departments and identified strategic, operational and performance gaps with prioritised recommendations.",
-    developmentLink: "Environmental governance and ministerial delivery.",
     earlier: true,
   },
   {
@@ -638,11 +620,10 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "College of Education Zing (Tertiary Education Trust Fund)",
     period: "2014",
     year: 2014,
-    role: "Equipment supplier and systems integrator",
+    role: "Equipment Supplier and Systems Integrator",
     practice: "Technology & Digital Transformation",
     group: "technology-digital-transformation",
     body: "The College of Education Zing needed the technology and infrastructure to support its e-library intervention. In 12 weeks, Carter supplied, installed and configured the required equipment, completed testing and intervention identification, and handed over the system with documentation and operating guidance.",
-    developmentLink: "Access to learning resources in tertiary education (SDG 4).",
     earlier: true,
   },
   {
@@ -651,26 +632,21 @@ export const SNAPSHOTS: Snapshot[] = [
     client: "National Information Technology Development Agency",
     period: "2012",
     year: 2012,
-    role: "Lead consultant",
+    role: "Lead Consultant",
     practice: "Programme & Project Delivery (monitoring and evaluation)",
     group: "programme-project-delivery",
     body: "NITDA needed to understand what its projects had achieved and what could be improved. Carter developed the assessment framework, reviewed project records and performance data, gathered evidence from stakeholders and beneficiaries, and assessed outputs, outcomes, relevance and sustainability. The findings captured achievements, gaps and lessons for future ICT interventions.",
-    developmentLink: "Evidence for better digital economy programmes.",
     earlier: true,
   },
 ];
 
 export const featureBySlug = (slug: string) => FEATURES.find((f) => f.slug === slug);
 
-/**
- * Where a case study lives: a feature's own page, or its snapshot's row on the
- * index. Undefined for unknown or held case studies, so callers can drop the link.
- */
-export const caseStudyHref = (key: string) => {
-  if (FEATURES.some((f) => f.slug === key)) return `/case-studies/${key}`;
-  if (SNAPSHOTS.some((s) => s.id === key)) return `/case-studies#${key}`;
+/** Card data for a case study by feature slug or snapshot id; undefined if unknown or held. */
+export const caseStudyCard = (key: string) => {
+  const f = FEATURES.find((x) => x.slug === key);
+  if (f) return { key, label: f.label, title: f.title, sub: f.descriptor, teaser: f.teaser, href: `/case-studies/${f.slug}` };
+  const s = SNAPSHOTS.find((x) => x.id === key);
+  if (s) return { key, label: s.practice, title: s.title, sub: s.client, teaser: s.body, snapshot: s };
   return undefined;
 };
-
-export const caseStudyTitle = (key: string) =>
-  FEATURES.find((f) => f.slug === key)?.title ?? SNAPSHOTS.find((s) => s.id === key)?.title;

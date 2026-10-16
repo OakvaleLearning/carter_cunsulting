@@ -6,6 +6,22 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { cn, EASE_EXPO } from "@/lib/cn";
 
+
+
+function Rise({ children, delay, className }: { children: React.ReactNode; delay: number; className?: string }) {
+  return (
+    <motion.div
+      data-motion
+      className={className}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, delay, ease: EASE_EXPO }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 /** Inner-page hero: full-bleed photo under a translucent overlay, with layered parallax. */
 export function PageHero({
   eyebrow,
@@ -30,7 +46,8 @@ export function PageHero({
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", `${28 * m}%`]);
   const textY = useTransform(scrollYProgress, [0, 1], [0, 140 * m]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
-
+  const eyebrowY = useTransform(scrollYProgress, [0, 1], [0, 220 * m]);
+  
   return (
     <section ref={ref} className="relative flex min-h-[78svh] items-end overflow-hidden bg-ink text-white">
       <motion.div style={{ y: imageY }} className="absolute inset-0 will-change-transform">
@@ -47,18 +64,18 @@ export function PageHero({
       <div aria-hidden className="absolute inset-0 bg-brand/25 mix-blend-multiply" />
 
       <motion.div style={{ y: textY, opacity: fade }} className="relative container-x pb-20 pt-40 lg:pb-28">
-        <motion.p
-          data-motion
-          className={cn("text-xs text-brand-light label-text", eyebrowClassName)}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: EASE_EXPO }}
-        >
-          {eyebrow}
-        </motion.p>
+         <motion.div style={{ y: eyebrowY }}>
+                 <Rise delay={0.75}>
+                   <p className="flex items-center gap-4 text-sm text-brand-light label-text sm:text-base">
+                     <span>
+                      {eyebrow}
+                     </span>
+                   </p>
+                 </Rise>
+               </motion.div>
         <h1
           className={cn(
-            "mt-6 max-w-4xl font-display text-[clamp(2.75rem,7vw,6.5rem)] leading-[1.02]",
+            "mt-6 max-w-5xl font-display text-[clamp(2.2rem,4.8vw,4.5rem)] leading-[1.06] tracking-[-0.01em]",
             titleClassName,
           )}
         >
@@ -77,7 +94,7 @@ export function PageHero({
         {intro && (
           <motion.p
             data-motion
-            className="mt-6 max-w-xl text-lg leading-relaxed text-white/80"
+            className="mt-6 max-w-xl text-xl leading-relaxed text-white/80"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 1.15, ease: EASE_EXPO }}

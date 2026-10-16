@@ -1,5 +1,4 @@
 import { AboutSnapshot } from "@/components/home/AboutSnapshot";
-import { Approach } from "@/components/home/Approach";
 import { ClosingCTA } from "@/components/home/ClosingCTA";
 import { Hero } from "@/components/home/Hero";
 import { Partners } from "@/components/home/Partners";
@@ -12,7 +11,6 @@ export default function HomePage() {
       <WhatWeDo />
       <AboutSnapshot />
       <Partners />
-      <Approach />
       <ClosingCTA />
     </>
   );

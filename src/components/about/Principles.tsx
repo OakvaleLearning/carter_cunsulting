@@ -29,7 +29,7 @@ export function Principles() {
           <RevealText
             as="p"
             text="Our approach is grounded in three principles."
-            className="font-display text-[clamp(1.4rem,2.2vw,2rem)] italic leading-snug text-white/75 lg:col-span-5 lg:col-start-8 lg:self-end"
+            className="font-display text-[clamp(1.4rem,2.2vw,2rem)] leading-snug text-white/75 lg:col-span-5 lg:col-start-8 lg:self-end"
             stagger={0.03}
           />
         </div>
@@ -69,7 +69,7 @@ function Card({
     <div className="lg:sticky lg:h-[85svh]" style={{ top: `calc(7rem + ${index * 2.5}rem)` }}>
       <motion.article
         style={{ scale, opacity: dim }}
-        className="relative mt-5 origin-top overflow-hidden border border-white/10 bg-[#11261c] p-8 will-change-transform sm:p-12 lg:mt-0 lg:grid lg:min-h-[60svh] lg:grid-cols-12 lg:gap-12 lg:p-16"
+        className="relative mt-5 origin-top overflow-hidden border border-white/10 bg-ink p-8 will-change-transform sm:p-12 lg:mt-0 lg:grid lg:min-h-[60svh] lg:grid-cols-12 lg:gap-12 lg:p-16"
       >
         <span
           aria-hidden
@@ -78,12 +78,9 @@ function Card({
           0{index + 1}
         </span>
         <div className="relative lg:col-span-5">
-          <span className="font-label text-sm text-brand-light tabular-nums">
-            0{index + 1} / 0{total}
-          </span>
-          <h3 className="mt-8 font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-none">{title}</h3>
+          <h3 className="font-display text-[clamp(2.5rem,5vw,4.5rem)] leading-none">{title}</h3>
         </div>
-        <p className="relative mt-8 leading-relaxed text-white/70 lg:col-span-6 lg:col-start-7 lg:mt-0 lg:self-end lg:text-lg">
+        <p className="relative mt-8 text-lg leading-relaxed text-white/80 lg:col-span-6 lg:col-start-7 lg:mt-0 lg:self-end lg:text-xl">
           {body}
         </p>
       </motion.article>

@@ -7,7 +7,6 @@ import { FadeIn, RevealText } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { FEATURES, featureBySlug, type Beat, type Block } from "@/lib/case-studies";
 import { PRACTICES, shortTitle } from "@/lib/content";
-import { teamFor } from "@/lib/people";
 
 export function generateStaticParams() {
   return FEATURES.map((f) => ({ slug: f.slug }));
@@ -26,10 +25,9 @@ export default async function Page({ params }: PageProps<"/case-studies/[slug]">
 
   const index = FEATURES.indexOf(f);
   const next = FEATURES[(index + 1) % FEATURES.length];
-  const team = teamFor(f.slug);
   const facts = [
     ["Client", f.client],
-    ["Carter's role", f.role],
+    ["Carter's Role", f.role],
     ...(f.period ? [["Period", f.period]] : []),
   ];
   const beats: [string, Beat][] = [
@@ -51,11 +49,11 @@ export default async function Page({ params }: PageProps<"/case-studies/[slug]">
             <ArrowLeft aria-hidden className="-mt-[0.2em] size-3.5 transition-transform duration-500 ease-expo group-hover:-translate-x-0.5" />
             Case Studies
           </Link>
-          <p className="mt-12 text-xs text-brand-light label-text">{f.label}</p>
+          <p className="mt-12 text-sm text-brand-light label-text sm:text-base">{f.label}</p>
           <RevealText
             as="h1"
             text={f.title}
-            className="mt-6 max-w-5xl font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.03]"
+            className="mt-6 max-w-5xl font-display text-[clamp(2.2rem,4.8vw,4.5rem)] leading-[1.06] tracking-[-0.01em]"
           />
           <FadeIn delay={0.2}>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/75">{f.descriptor}</p>
@@ -66,7 +64,7 @@ export default async function Page({ params }: PageProps<"/case-studies/[slug]">
       <section className="bg-paper py-24 lg:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-12">
           <FadeIn className="lg:col-span-7">
-            <p className="font-display text-[clamp(1.5rem,2.4vw,2.1rem)] italic leading-snug text-ink/85">{f.standfirst}</p>
+            <p className="font-display text-[clamp(1.5rem,2.4vw,2.1rem)] leading-snug text-ink/85">{f.standfirst}</p>
           </FadeIn>
           <FadeIn delay={0.1} className="lg:col-span-4 lg:col-start-9">
             <dl className="divide-y divide-ink/10 border-y border-ink/10">
@@ -95,7 +93,7 @@ export default async function Page({ params }: PageProps<"/case-studies/[slug]">
       <section className="bg-mist py-24 lg:py-32">
         <div className="container-x grid gap-14 lg:grid-cols-12 lg:gap-12">
           <FadeIn className="lg:col-span-5">
-            <h2 className="text-[11px] text-brand label-text">Aligned national and global priorities</h2>
+            <h2 className="text-[11px] text-brand label-text">Aligned National and Global Priorities</h2>
             <ul className="mt-6">
               {f.priorities.map((p) => (
                 <li key={p} className="border-t border-ink/10 py-4 leading-relaxed text-ink/80">
@@ -105,7 +103,7 @@ export default async function Page({ params }: PageProps<"/case-studies/[slug]">
             </ul>
           </FadeIn>
           <FadeIn delay={0.1} className="lg:col-span-6 lg:col-start-7">
-            <h2 className="text-[11px] text-brand label-text">What it means for Nigerians</h2>
+            <h2 className="text-[11px] text-brand label-text">What It Means for Nigerians</h2>
             <div className="mt-6 space-y-5 border-t border-ink/10 pt-6">
               {f.forNigerians.map((p) => (
                 <p key={p} className="font-display text-[clamp(1.25rem,1.8vw,1.6rem)] leading-snug text-ink/85">
@@ -119,13 +117,11 @@ export default async function Page({ params }: PageProps<"/case-studies/[slug]">
 
       <section className="bg-paper py-12 lg:py-20">
         <div className="container-x divide-y divide-ink/10">
-          {beats.map(([label, beat], i) => (
+          {beats.map(([label, beat]) => (
             <article key={label} className="grid gap-8 py-16 lg:grid-cols-12 lg:gap-12 lg:py-20">
               <div className="lg:col-span-4">
                 <div className="lg:sticky lg:top-32">
-                  <Eyebrow className="text-brand">
-                    0{i + 1} · {label}
-                  </Eyebrow>
+                  <Eyebrow className="text-brand">{label}</Eyebrow>
                 </div>
               </div>
               <div className="lg:col-span-7 lg:col-start-6">
@@ -149,33 +145,19 @@ export default async function Page({ params }: PageProps<"/case-studies/[slug]">
       <section className="bg-paper pb-24 lg:pb-32">
         <div className="container-x">
           <FadeIn className="bg-brand p-8 text-white sm:p-12 lg:p-16">
-            <h2 className="text-[11px] text-brand-light label-text">From recommendation to implementation</h2>
+            <h2 className="text-[11px] text-brand-light label-text">From Recommendation to Implementation</h2>
             <ol className="mt-8 grid gap-8 lg:grid-cols-3">
-              {f.implementation.map((line, i) => (
+              {f.implementation.map((line) => (
                 <li key={line} className="border-t border-white/25 pt-5">
-                  <span className="text-[11px] text-brand-light label-text">0{i + 1}</span>
-                  <p className="mt-3 font-display text-xl leading-snug">{line}</p>
+                  <p className="font-display text-xl leading-snug">{line}</p>
                 </li>
               ))}
             </ol>
           </FadeIn>
 
           <div className="mt-20 grid gap-14 lg:grid-cols-12 lg:gap-12">
-            {team.length > 0 && (
-              <FadeIn className="lg:col-span-7">
-                <h2 className="text-[11px] text-brand label-text">Carter team</h2>
-                <ul className="mt-6 grid gap-x-10 sm:grid-cols-2">
-                  {team.map((m) => (
-                    <li key={m.name} className="border-t border-ink/10 py-4">
-                      <span className="block font-display text-xl leading-tight">{m.name}</span>
-                      <span className="mt-1 block text-sm text-ink/60">{m.role}</span>
-                    </li>
-                  ))}
-                </ul>
-              </FadeIn>
-            )}
-            <FadeIn delay={0.1} className="lg:col-span-4 lg:col-start-9">
-              <h2 className="text-[11px] text-brand label-text">Related services</h2>
+            <FadeIn className="lg:col-span-5">
+              <h2 className="text-[11px] text-brand label-text">Related Services</h2>
               <ul className="mt-6">
                 {f.related.map((slug) => {
                   const practice = PRACTICES.find((p) => p.slug === slug);
@@ -201,7 +183,7 @@ export default async function Page({ params }: PageProps<"/case-studies/[slug]">
               href={`/case-studies/${next.slug}`}
               className="group mt-24 block border-t border-ink/15 pt-10"
             >
-              <span className="text-[11px] text-ink/50 label-text">Next case study</span>
+              <span className="text-[11px] text-ink/50 label-text">Next Case Study</span>
               <span className="mt-4 flex items-end justify-between gap-6">
                 <span className="font-display text-[clamp(1.9rem,3.4vw,3.25rem)] leading-[1.05] transition-colors duration-300 group-hover:text-brand">
                   {next.title}

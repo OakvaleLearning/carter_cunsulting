@@ -1,79 +1,87 @@
-import { ParallaxImage, ParallaxLayer } from "@/components/motion/Parallax";
-import { FadeIn, RevealText } from "@/components/motion/Reveal";
+import Image from "next/image";
+import { Banknote, Cpu, Landmark, Users } from "lucide-react";
+import { ParallaxImage } from "@/components/motion/Parallax";
+import { FadeIn } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { cn } from "@/lib/cn";
 
-const DISCIPLINES = [
-  "The policy and institutional context",
-  "The financial and commercial case",
-  "The technology required",
-  "The structures and capabilities needed to deliver",
+const PERSPECTIVES = [
+  { label: "The policy and institutional context", Icon: Landmark },
+  { label: "The financial and commercial case", Icon: Banknote },
+  { label: "The technology required", Icon: Cpu },
+  { label: "The structures and capabilities needed to deliver", Icon: Users },
 ];
 
 export function Intro() {
   return (
     <section className="relative bg-paper py-28 lg:py-40">
-      <div className="container-x">
-        <Eyebrow className="text-brand">Who We Are</Eyebrow>
-        <RevealText
-          as="p"
-          text="We work with governments, public institutions, development partners and businesses across Nigeria and international markets on assignments where strategic ambition has to translate into practical, measurable outcomes."
-          className="mt-8 max-w-5xl font-display text-[clamp(1.9rem,3.6vw,3.4rem)] leading-[1.12]"
-          stagger={0.02}
-        />
+      <div className="container-x grid gap-16 lg:grid-cols-12 lg:gap-12">
+        <div className="lg:col-span-5">
+          <ParallaxImage
+            src="/images/strategy-lagos.jpg"
+            alt="Advisers in discussion around a meeting table"
+            className="aspect-[4/5] w-full"
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            speed={12}
+          />
+        </div>
 
-        <div className="mt-20 grid gap-16 lg:mt-28 lg:grid-cols-12 lg:gap-12">
-          <div className="relative lg:col-span-5">
-            <ParallaxImage
-              src="/images/strategy-lagos.jpg"
-              alt="Advisers in discussion around a meeting table"
-              className="aspect-[4/5] w-full"
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              speed={12}
-            />
-            <ParallaxLayer speed={-60} className="absolute -bottom-10 -right-4 hidden sm:block lg:-right-10">
-              <div className="bg-ink px-8 py-7 text-white shadow-2xl shadow-ink/25">
-                <p className="text-[11px] text-brand-light label-text">Multidisciplinary</p>
-                <p className="mt-2 font-display text-2xl italic leading-tight">Management &amp; Technology</p>
-              </div>
-            </ParallaxLayer>
-          </div>
+        <div className="lg:col-span-6 lg:col-start-7">
+          <Eyebrow className="text-brand">Our Work</Eyebrow>
+          <FadeIn>
+            <p className="mt-8 text-lg leading-relaxed text-ink/80">
+              Our work spans strategy and public policy, technology and digital transformation, financial and
+              transaction advisory, programme and project delivery, and sector advisory. Bringing these
+              capabilities together allows us to address complex assignments from more than one perspective.
+            </p>
+          </FadeIn>
 
-          <div className="lg:col-span-6 lg:col-start-7">
-            <FadeIn>
-              <p className="text-lg leading-relaxed text-ink/80">
-                Our work spans strategy and public policy, technology and digital transformation, financial and
-                transaction advisory, programme and project delivery, and sector advisory. Bringing these
-                capabilities together allows us to address complex assignments from more than one perspective:
-              </p>
-            </FadeIn>
+          <Perspectives />
 
-            <ol className="mt-10 border-t border-ink/10">
-              {DISCIPLINES.map((d, i) => (
-                <FadeIn
-                  as="li"
-                  key={d}
-                  delay={i * 0.08}
-                  className="flex items-baseline gap-6 border-b border-ink/10 py-5"
-                >
-                  <span className="font-label text-xs text-brand tabular-nums">0{i + 1}</span>
-                  <span className="font-display text-xl leading-snug lg:text-2xl">{d}</span>
-                </FadeIn>
-              ))}
-            </ol>
-
-            <FadeIn delay={0.1}>
-              <p className="mt-10 leading-relaxed text-ink/70">
-                This matters because the most consequential assignments rarely sit within a single discipline. A
-                public-sector reform may require policy design, institutional restructuring, technology, financing
-                and programme management. A major investment may depend as much on regulatory conditions and
-                implementation capacity as it does on the underlying commercial proposition. Our role is to
-                understand those interdependencies early and help clients make decisions that remain viable
-                through implementation.
-              </p>
-            </FadeIn>
-          </div>
+          {/* TODO: closing paragraph, copy to follow from the Carter team. */}
         </div>
       </div>
     </section>
+  );
+}
+
+/**
+ * The four perspectives as quarters of one picture: each quarter builds in
+ * turn, then the Carter mark settles at the centre where they meet.
+ */
+function Perspectives() {
+  return (
+    <div className="relative mt-12">
+      <ul className="grid grid-cols-2 gap-2">
+        {PERSPECTIVES.map(({ label, Icon }, i) => (
+          <FadeIn
+            as="li"
+            key={label}
+            delay={0.15 + i * 0.25}
+            y={16}
+            // Each quarter keeps its text toward its outer corner, leaving the centre clear for the mark.
+            className={cn(
+              "flex min-h-56 flex-col gap-4 bg-mist p-5 sm:min-h-52 sm:p-7",
+              i % 2 === 1 && "items-end text-right",
+              i >= 2 && "justify-end",
+            )}
+          >
+            <Icon aria-hidden className="size-7 shrink-0 text-brand" strokeWidth={1.5} />
+            <span className="max-w-[12rem] font-display text-lg leading-snug sm:text-xl">{label}</span>
+          </FadeIn>
+        ))}
+      </ul>
+      <FadeIn
+        delay={1.25}
+        y={0}
+        className="pointer-events-none absolute left-1/2 top-1/2 size-20 -translate-x-1/2 -translate-y-1/2 sm:size-24"
+      >
+        <span className="relative block size-full rounded-full bg-paper p-2 shadow-[0_0_0_6px_var(--color-paper)]">
+          <span className="relative block size-full">
+            <Image src="/logo-mark.png" alt="" fill sizes="96px" className="object-contain" />
+          </span>
+        </span>
+      </FadeIn>
+    </div>
   );
 }

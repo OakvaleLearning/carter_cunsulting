@@ -18,7 +18,7 @@ export default function Page() {
       <PageHero
         eyebrow="Contact Carter"
         title={<RotatingHeadline lines={CONTACT_HEADLINES} />}
-        titleClassName="max-w-4xl text-[clamp(2rem,3.6vw,3.5rem)] leading-[1.08]"
+        titleClassName="max-w-4xl"
         eyebrowClassName="font-semibold"
         image="/images/contact-hero.jpg"
         intro={SUPPORTING}
@@ -41,7 +41,7 @@ export default function Page() {
             </FadeIn>
 
             <FadeIn delay={0.18} className="mt-14 border-t border-ink/10 pt-8">
-              <p className="text-[11px] text-brand label-text">Direct contact</p>
+              <p className="text-[11px] text-brand label-text">Direct Contact</p>
               <ul className="mt-6 space-y-4">
                 <li>
                   <a

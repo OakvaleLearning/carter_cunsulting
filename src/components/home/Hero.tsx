@@ -6,14 +6,13 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 import { MorphWord } from "@/components/motion/MorphWord";
 import { RotatingPhrase } from "@/components/motion/RotatingPhrase";
-import { WaterRipple } from "@/components/motion/WaterRipple";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { HERO_PHRASES } from "@/lib/content";
 import { EASE_EXPO } from "@/lib/cn";
 
 function Line({ children, delay }: { children: React.ReactNode; delay: number }) {
   return (
-    <span className="block overflow-hidden pb-[0.08em]">
+    <span className="-mb-[0.1em] block overflow-hidden pb-[0.18em]">
       <motion.span
         data-motion
         className="block"
@@ -73,7 +72,6 @@ export function Hero() {
             fetchPriority="high"
             className="object-cover"
           />
-          <WaterRipple src="/images/hero.jpg" />
         </motion.div>
       </motion.div>
       <div aria-hidden className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/90" />
@@ -84,47 +82,39 @@ export function Hero() {
         <motion.div style={{ y: eyebrowY }}>
           <Rise delay={0.75}>
             <p className="flex items-center gap-4 text-sm text-brand-light label-text sm:text-base">
-              {/* <span aria-hidden className="-mt-[0.2em] h-px w-10 bg-current" /> */}
               <span>
-                From Intent to <MorphWord from="Intent" to="Impact" delay={1.9} />
+                From intent to <MorphWord from="intent" to="impact" delay={1.9} />
               </span>
             </p>
           </Rise>
         </motion.div>
 
         <motion.div style={{ y: headlineY }}>
-          <h1 className="mt-8 max-w-6xl font-display text-[clamp(2.4rem,6.4vw,6.25rem)] leading-[1.02] tracking-[-0.01em]">
+          <h1 className="mt-8 max-w-5xl font-display text-[clamp(2.2rem,4.8vw,4.5rem)] leading-[1.06] tracking-[-0.01em]">
             <span className="sr-only">
-              We translate government policy, development ambition and business strategy into sustainable outcomes.
+              We translate government policy, development ambition and business strategy into sustainable outcomes
             </span>
             <span aria-hidden className="block">
               <Line delay={0.85}>We translate</Line>
               <Line delay={0.95}>
-                <RotatingPhrase phrases={HERO_PHRASES} startDelay={2400} className="text-[0.78em] italic text-brand-light" />
+                <RotatingPhrase phrases={HERO_PHRASES} startDelay={2400} className="text-[0.78em] text-brand-light" />
               </Line>
-              <Line delay={1.05}>into sustainable outcomes.</Line>
+              <Line delay={1.05}>into sustainable outcomes</Line>
             </span>
           </h1>
         </motion.div>
 
-        <motion.div style={{ y: supportY }} className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-end">
-          <Rise delay={1.3} className="lg:col-span-6">
-            <p className="max-w-xl text-lg leading-relaxed text-white/80">
-              Carter Consulting has been closing the distance between intent and impact for governments,
-              development partners and businesses since 2009.
-            </p>
-          </Rise>
-          <Rise delay={1.45} className="flex flex-wrap gap-4 lg:col-span-6 lg:justify-end">
-            <ButtonLink href="/case-studies">View Our Case Studies</ButtonLink>
+        <motion.div style={{ y: supportY }} className="mt-10">
+          <Rise delay={1.3}>
             <ButtonLink href="/contact" variant="light">
               Talk to Carter
             </ButtonLink>
           </Rise>
         </motion.div>
 
-        <Rise delay={1.8} className="mt-14 hidden items-center justify-between border-t border-white/15 pt-6 text-xs text-white/60 label-text md:flex">
-          <span>Est. 2009</span>
-          <span className="flex items-center gap-3">
+        <Rise delay={1.8} className="mt-14 flex items-center justify-between border-t border-white/15 pt-6 label-text">
+          <span className="text-sm text-white/85 sm:text-base">Established 2009</span>
+          <span className="hidden items-center gap-3 text-xs text-white/60 md:flex">
             Scroll
             <span aria-hidden className="relative -mt-[0.2em] block h-8 w-px overflow-hidden bg-white/20">
               <motion.span

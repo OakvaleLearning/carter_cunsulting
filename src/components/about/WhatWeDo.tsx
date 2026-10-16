@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ParallaxImage, ParallaxLayer } from "@/components/motion/Parallax";
 import { FadeIn, RevealText } from "@/components/motion/Reveal";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -5,47 +6,33 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export function WhatWeDo() {
   return (
-    <section className="relative isolate overflow-hidden bg-brand-deep text-white">
+    <section className="relative isolate overflow-hidden bg-brand text-white">
       <ParallaxImage
         src="/images/sector.jpg"
         alt=""
         reveal={false}
         speed={14}
-        className="!absolute inset-0 -z-10 opacity-20"
+        className="!absolute inset-0 -z-10 opacity-45"
       />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-br from-brand-deep via-brand-deep/90 to-ink/80" />
+      {/* Light enough for the photo to show through, dark enough at the text edge for white type. */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-brand/90 via-brand/75 to-brand/55" />
 
-      <div className="container-x grid gap-14 py-28 lg:grid-cols-12 lg:gap-12 lg:py-40">
-        <div className="lg:col-span-7">
-          <Eyebrow className="text-brand-light">What We Do</Eyebrow>
-          <ParallaxLayer speed={30}>
-            <RevealText
-              text="Carter works at the point where important decisions become programmes, investments, operating models and institutional change."
-              className="mt-8 font-display text-[clamp(2rem,4vw,3.75rem)] leading-[1.08]"
-              stagger={0.03}
-            />
-          </ParallaxLayer>
-        </div>
+      <ParallaxLayer
+        speed={-30}
+        className="pointer-events-none absolute -right-24 top-1/2 -z-10 hidden aspect-square w-[34rem] -translate-y-1/2 select-none opacity-[0.12] md:block lg:right-0"
+      >
+        <Image src="/logo-mark-white.png" alt="" fill sizes="34rem" className="object-contain" />
+      </ParallaxLayer>
 
-        <div className="lg:col-span-4 lg:col-start-9 lg:self-end">
-          <FadeIn>
-            <p className="leading-relaxed text-white/75">
-              We advise on the issues that shape how organisations perform and how markets and public institutions
-              develop. Depending on the assignment, this may involve developing policy and strategy, assessing
-              investment and commercial opportunities, designing operating models, structuring transactions,
-              developing digital platforms or establishing the governance and delivery arrangements for complex
-              programmes.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.12}>
-            <p className="mt-6 leading-relaxed text-white/75">
-              Our teams work across disciplines rather than through a sequence of disconnected handovers. This
-              gives clients access to strategic, technical, financial and sector expertise within a single
-              engagement, while maintaining a clear line of sight from the original objective to the outcome being
-              pursued.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.2} className="mt-10">
+      <div className="container-x py-28 lg:py-40">
+        <div className="max-w-4xl">
+          <Eyebrow className="text-white/80">What We Do</Eyebrow>
+          <RevealText
+            text="Carter works at the point where important decisions become programmes, investments, operating models and institutional change."
+            className="mt-8 font-display text-[clamp(2rem,4vw,3.75rem)] leading-[1.08]"
+            stagger={0.03}
+          />
+          <FadeIn delay={0.2} className="mt-12">
             <ButtonLink href="/services" variant="light">
               Explore our services
             </ButtonLink>

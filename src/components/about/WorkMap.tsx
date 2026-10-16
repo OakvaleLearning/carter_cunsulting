@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { OFFICES, WORK_LOCATIONS } from "@/lib/content";
-import { cn, EASE_EXPO, EASE_INOUT } from "@/lib/cn";
+import { motion } from "framer-motion";
+import { countryName, OFFICES, WORK_LOCATIONS } from "@/lib/content";
+import { cn, EASE_INOUT } from "@/lib/cn";
 import { useReducedMotionSafe } from "@/lib/useReducedMotionSafe";
 
 /** "world", "africa", or the name of a covered country. */
@@ -57,13 +57,12 @@ export function WorkMap({ map }: { map: MapData }) {
   // are scaled by this so they keep a constant on-screen size at any zoom.
   const k = Math.max(box.w, box.h * ASPECT) / frameWidth;
   const zoomedIn = view !== "world" && view !== "africa";
-  const location = WORK_LOCATIONS.find((l) => l.id === active);
   const fly = { duration: reduce ? 0 : 1.6, ease: EASE_INOUT };
 
   const tabs = [
     { id: "world", label: "World", wide: false },
     { id: "africa", label: "Africa", wide: false },
-    ...COVERAGE.filter((c) => c.country in map.views).map((c) => ({ id: c.country, label: c.country, wide: true })),
+    ...COVERAGE.filter((c) => c.country in map.views).map((c) => ({ id: c.country, label: countryName(c.country), wide: true })),
   ];
 
   // From the lists, bring the map on screen first (it sits above them on small screens).
@@ -87,7 +86,7 @@ export function WorkMap({ map }: { map: MapData }) {
         <div ref={frame} className="relative aspect-[16/11] overflow-hidden bg-mist">
           <motion.svg
             role="img"
-            aria-label={`World map with Nigeria highlighted, marking Carter's offices in ${COVERAGE.map((c) => c.country).join(" and ")}, and its engagement locations`}
+            aria-label={`World map with Nigeria highlighted, marking Carter's offices in ${COVERAGE.map((c) => countryName(c.country)).join(", ")}, and its engagement locations`}
             className="absolute inset-0 size-full"
             initial={false}
             // Fixed decimals: exponent notation (e.g. 2.8e-14) breaks viewBox interpolation.
@@ -152,7 +151,7 @@ export function WorkMap({ map }: { map: MapData }) {
                 fly={fly}
                 reduce={reduce}
               >
-                {c.name}
+                {countryName(c.name)}
               </MapLabel>
             ))}
             {map.offices.map((o) => (
@@ -210,7 +209,7 @@ export function WorkMap({ map }: { map: MapData }) {
                     view === c.country ? "text-brand" : "text-ink group-hover:text-brand",
                   )}
                 >
-                  {c.country}
+                  {countryName(c.country)}
                 </span>
                 <span className="text-right text-xs leading-relaxed text-ink/55 label-text">
                   {c.cities.join(" · ")}
@@ -243,36 +242,6 @@ export function WorkMap({ map }: { map: MapData }) {
             </li>
           ))}
         </ul>
-
-        <div aria-live="polite" className="mt-10">
-          <AnimatePresence mode="wait" initial={false}>
-            {location && (
-              <motion.div
-                key={location.id}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.5, ease: EASE_EXPO }}
-              >
-                <p className="text-xs text-brand label-text">Selected engagements</p>
-                <ul className="mt-5 space-y-4">
-                  {location.engagements.map((e, i) => (
-                    <motion.li
-                      key={e}
-                      initial={{ opacity: 0, x: -12 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.1 + i * 0.07, ease: EASE_EXPO }}
-                      className="flex items-baseline gap-4"
-                    >
-                      <span aria-hidden className="h-px w-5 shrink-0 translate-y-[-0.3em] bg-brand" />
-                      <span className="text-lg leading-snug text-ink/85">{e}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
       </div>
     </div>
   );

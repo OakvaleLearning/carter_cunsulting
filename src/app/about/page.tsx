@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Approach } from "@/components/about/Approach";
 import { Careers } from "@/components/about/Careers";
 import { Experience } from "@/components/about/Experience";
 import { Intro } from "@/components/about/Intro";
@@ -25,6 +26,7 @@ export default function Page() {
       />
       <Intro />
       <WhatWeDo />
+      <Approach />
       <Experience />
       <Principles />
       <TrackRecord />

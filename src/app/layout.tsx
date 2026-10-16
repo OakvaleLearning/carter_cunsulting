@@ -10,7 +10,6 @@ import "./globals.css";
 const garamond = EB_Garamond({
   variable: "--font-eb-garamond",
   subsets: ["latin"],
-  style: ["normal", "italic"],
 });
 
 const josefin = Josefin_Sans({

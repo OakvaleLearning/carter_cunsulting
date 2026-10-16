@@ -25,6 +25,16 @@
   --color-mist: #edf6ee; /* Pale Spring Bud tint */
   --color-logo: #007932; /* Forest Green */
 
+  /* EB Garamond sets small, so body sizes run a step larger than Tailwind's defaults. */
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1.1875rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.3125rem;
+  --text-lg--line-height: 1.6;
+  --text-xl: 1.4375rem;
+  --text-xl--line-height: 1.5;
+
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
 
   --animate-marquee: marquee 48s linear infinite;
@@ -54,6 +64,21 @@
     background: var(--color-paper);
     color: var(--color-ink);
     font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+  }
+
+  /* Wrapped lines keep a longer last line and never leave a single word hanging. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
   }
 
   ::selection {

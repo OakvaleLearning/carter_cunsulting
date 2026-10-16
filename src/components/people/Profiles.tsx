@@ -2,10 +2,8 @@
 
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, Plus, X } from "lucide-react";
+import { ArrowUpRight, Plus, X } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
-import { caseStudyHref } from "@/lib/case-studies";
 import { initials, photoOf, type Person } from "@/lib/people";
 import { cn, EASE_EXPO } from "@/lib/cn";
 
@@ -87,41 +85,10 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
                 </h2>
                 <p className="mt-4 text-xs text-brand label-text">{person.role}</p>
                 <p className="mt-10 text-lg leading-relaxed text-ink/80">{person.bio}</p>
-                <ProfileList title="Previous experience" items={person.experience} />
-                <ProfileList title="Education and qualifications" items={person.education} />
-                {person.projects && person.projects.length > 0 && (
-                  <section className="mt-10">
-                    <h3 className="text-[11px] text-brand label-text">Project profile</h3>
-                    <ul className="mt-4">
-                      {person.projects.map((pr) => {
-                        const href = pr.caseStudy && caseStudyHref(pr.caseStudy);
-                        return (
-                        <li key={pr.role + pr.project} className="border-t border-ink/10 py-3 leading-relaxed">
-                          <span className="block text-[11px] text-ink/50 label-text">{pr.role}</span>
-                          {href ? (
-                            <Link
-                              href={href}
-                              onClick={close}
-                              className="group/cs mt-1 inline text-ink/85 underline decoration-brand/30 decoration-2 underline-offset-4 transition-colors hover:text-brand hover:decoration-brand"
-                            >
-                              {pr.project}
-                              <span className="sr-only"> (case study)</span>
-                              <ArrowRight
-                                aria-hidden
-                                className="ml-1.5 inline size-3.5 transition-transform duration-500 ease-expo group-hover/cs:translate-x-0.5"
-                              />
-                            </Link>
-                          ) : (
-                            <span className="mt-1 block text-ink/85">{pr.project}</span>
-                          )}
-                        </li>
-                        );
-                      })}
-                    </ul>
-                  </section>
-                )}
+                <ProfileList title="Previous Experience" items={person.experience} />
+                <ProfileList title="Education and Qualifications" items={person.education} />
                 {person.interests && (
-                  <p className="mt-10 border-t border-ink/10 pt-8 font-display text-xl italic leading-snug text-ink/70">
+                  <p className="mt-10 border-t border-ink/10 pt-8 font-display text-xl leading-snug text-ink/70">
                     {person.interests}
                   </p>
                 )}
@@ -190,7 +157,7 @@ export function PersonCard({ person }: { person: Person }) {
       <div className="flex flex-1 flex-col p-6 lg:p-7">
         <h3 className="font-display text-2xl leading-tight">{person.name}</h3>
         <p className="mt-2 text-[11px] text-ink/55 label-text">{person.role}</p>
-        {person.bio && <p className="mt-5 line-clamp-3 text-[15px] leading-relaxed text-ink/65">{person.bio}</p>}
+        {person.bio && <p className="mt-5 line-clamp-3 leading-relaxed text-ink/70">{person.bio}</p>}
 
         <div className="mt-auto flex items-center justify-between gap-4 pt-8">
           {person.bio ? (

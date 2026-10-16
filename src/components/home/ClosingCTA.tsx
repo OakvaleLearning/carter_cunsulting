@@ -19,7 +19,7 @@ export function ClosingCTA() {
 
       <div className="container-x flex min-h-[80svh] flex-col justify-center py-28 lg:py-40">
         <ParallaxLayer speed={60}>
-          <h2 className="font-display text-[clamp(2.1rem,6vw,5.75rem)] italic leading-[1.05]">
+          <h2 className="font-display text-[clamp(2rem,4.2vw,4rem)] leading-[1.15]">
             <span className="sr-only">
               Considering a new policy, a major investment, a technology platform, a reform programme or a new
               operating model?
@@ -27,7 +27,7 @@ export function ClosingCTA() {
             <span aria-hidden className="block">
               <FadeIn>Considering</FadeIn>
               <FadeIn delay={0.1}>
-                <RotatingPhrase phrases={CLOSING_PHRASES} interval={2600} className="text-[0.78em] text-brand-light" />
+                <RotatingPhrase phrases={CLOSING_PHRASES} interval={2600} className="text-brand-light" />
               </FadeIn>
             </span>
           </h2>

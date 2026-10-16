@@ -108,7 +108,7 @@ export function TrackRecord() {
         </ol>
 
         <FadeIn className="mt-20 lg:mt-28">
-          <p className="max-w-3xl font-display text-[clamp(1.35rem,2vw,1.85rem)] italic leading-snug text-ink/80">
+          <p className="max-w-3xl font-display text-[clamp(1.35rem,2vw,1.85rem)] leading-snug text-ink/80">
             Each stage of that development has added to the firm&rsquo;s experience across strategy, technology,
             finance, programme delivery and sector advisory, while strengthening the relationships that underpin
             our work with public institutions, development partners and businesses.

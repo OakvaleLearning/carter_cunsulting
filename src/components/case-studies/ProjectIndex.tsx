@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, Plus } from "lucide-react";
 import { FEATURES, SNAPSHOTS, type Feature, type Snapshot } from "@/lib/case-studies";
 import { PRACTICES, shortTitle } from "@/lib/content";
-import { teamFor } from "@/lib/people";
 import { cn, EASE_EXPO } from "@/lib/cn";
 
 const noop = () => () => {};
@@ -150,8 +149,7 @@ export function ProjectIndex() {
           <div className="mt-24 grid gap-6 lg:grid-cols-12">
             <h2 className="font-display text-[clamp(2rem,3.4vw,3rem)] leading-[1.05] lg:col-span-5">More of Our Work</h2>
             <p className="text-lg leading-relaxed text-ink/70 lg:col-span-6 lg:col-start-7 lg:self-end">
-              Short-form examples from the wider Carter portfolio: the client need, the work delivered and the
-              development link.
+              Short-form examples from the wider Carter portfolio: the client need and the work delivered.
             </p>
           </div>
 
@@ -241,7 +239,6 @@ function Row({
   onToggle: () => void;
 }) {
   const panel = `${s.id}-panel`;
-  const team = teamFor(s.id);
   return (
     <>
       <h3>
@@ -302,17 +299,13 @@ function Row({
                   {s.result}
                 </p>
               )}
-              <p className="mt-8 border-t border-ink/10 pt-5 leading-relaxed">
-                <span className="mr-3 text-[11px] text-brand label-text">Development link</span>
-                <span className="font-display text-xl italic text-ink/80">{s.developmentLink}</span>
-              </p>
             </div>
             <dl className="grid h-fit grid-cols-2 gap-x-6 gap-y-6 bg-mist p-6 sm:p-8 lg:col-span-4 lg:col-start-9 lg:grid-cols-1">
               {(
                 [
                   ["Client", s.client],
                   ["Period", s.period],
-                  ["Carter's role", s.role],
+                  ["Carter's Role", s.role],
                   ["Practice", s.practice],
                 ] as const
               ).map(([k, v]) => (
@@ -321,21 +314,6 @@ function Row({
                   <dd className="mt-2 font-display text-lg leading-snug">{v}</dd>
                 </div>
               ))}
-              {team.length > 0 && (
-                <div className="col-span-2 border-t border-ink/10 pt-5 lg:col-span-1">
-                  <dt className="text-[10px] text-ink/50 label-text">Carter team</dt>
-                  <dd className="mt-3">
-                    <ul className="space-y-3">
-                      {team.map((m) => (
-                        <li key={m.name} className="leading-snug">
-                          <span className="block font-display text-lg">{m.name}</span>
-                          <span className="block text-sm text-ink/60">{m.role}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </dd>
-                </div>
-              )}
             </dl>
           </div>
         </div>

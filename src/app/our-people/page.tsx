@@ -17,7 +17,7 @@ export default function Page() {
       <PageHero
         eyebrow="Leadership & Practice Teams"
         title="Our People"
-        image="/images/people-hero-lagos.jpg"
+        image="/images/people-hero-boardroom.jpg"
         intro={INTRO}
       />
       <Leadership />

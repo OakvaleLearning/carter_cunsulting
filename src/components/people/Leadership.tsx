@@ -9,7 +9,7 @@ export function Leadership() {
       <div className="container-x">
         <div className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <Eyebrow className="text-brand">01 / 03</Eyebrow>
+            <Eyebrow className="text-brand">Carter Consulting</Eyebrow>
             <div id="leadership-heading">
               <RevealText
                 text="Leadership"
@@ -36,7 +36,7 @@ export function Leadership() {
               />
               <h3 className="mt-10 font-display text-4xl leading-none">{p.name}</h3>
               <p className="mt-4 text-[11px] text-brand label-text">{p.role}</p>
-              <p className="mt-8 leading-relaxed text-ink/70">{p.bio}</p>
+              <p className="mt-8 text-lg leading-relaxed text-ink/75">{p.bio}</p>
               <div className="mt-auto flex flex-wrap items-center gap-6 pt-10">
                 <ProfileButton person={p} />
                 {p.linkedin && <LinkedIn href={p.linkedin} name={p.name} />}

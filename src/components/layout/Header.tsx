@@ -151,7 +151,6 @@ export function Header() {
                         onClick={close}
                         className="flex items-baseline gap-4 py-1 font-display text-5xl text-white/90 hover:text-brand-light"
                       >
-                        <span className="text-xs text-brand-light font-display uppercase leading-none tracking-[0.2em]">0{i + 1}</span>
                         {item.label}
                       </Link>
                     </motion.div>
@@ -160,7 +159,7 @@ export function Header() {
               </ul>
             </nav>
             <motion.p
-              className="mt-12 border-t border-white/10 pt-6 font-display text-xl italic text-white/60"
+              className="mt-12 border-t border-white/10 pt-6 font-display text-xl text-white/60"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}

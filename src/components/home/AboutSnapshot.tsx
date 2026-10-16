@@ -70,7 +70,7 @@ export function AboutSnapshot() {
         </div>
       </div>
 
-      <div className="bg-brand-deep text-white">
+      <div className="bg-brand text-white">
         <div className="container-x grid divide-y divide-white/15 lg:grid-cols-2 lg:divide-x lg:divide-y-0">
           {STATEMENTS.map((s, i) => (
             <div key={s.label} className={i === 0 ? "py-16 lg:py-24 lg:pr-16" : "py-16 lg:py-24 lg:pl-16"}>
@@ -79,7 +79,7 @@ export function AboutSnapshot() {
                 <RevealText
                   as="p"
                   text={s.text}
-                  className="mt-6 font-display text-[clamp(1.5rem,2.3vw,2.1rem)] italic leading-snug"
+                  className="mt-6 font-display text-[clamp(1.5rem,2.3vw,2.1rem)] leading-snug"
                   stagger={0.02}
                   delay={i * 0.15}
                 />

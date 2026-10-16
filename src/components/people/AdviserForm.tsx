@@ -41,7 +41,7 @@ export function AdviserForm() {
           </span>
           <p className="mt-8 font-display text-4xl leading-tight">Thank you. We have received your details.</p>
           <p className="mt-4 max-w-md leading-relaxed text-ink/70">
-            We retain details of potential advisers for consideration as relevant assignments arise.
+            We retain details of potential advisors for consideration as relevant assignments arise.
           </p>
         </motion.div>
       ) : (
@@ -138,9 +138,9 @@ export function AdviserForm() {
             <Button type="submit" disabled={pending} className="self-start">
               {pending ? "Sending…" : "Submit Enquiry"}
             </Button>
-            <p className="max-w-xl text-xs italic leading-relaxed text-ink/55">
+            <p className="max-w-xl text-xs leading-relaxed text-ink/55">
               Submitting an enquiry does not constitute an application for employment or guarantee an engagement. We
-              retain details of potential advisers for consideration as relevant assignments arise.
+              retain details of potential advisors for consideration as relevant assignments arise.
             </p>
           </div>
 

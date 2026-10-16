@@ -3,12 +3,12 @@ import { FadeIn, RevealText } from "@/components/motion/Reveal";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 const ASSIGNMENTS = [
-  "National & sub-national government programmes",
-  "Public-sector transformation",
-  "Digital government",
-  "Economic & sector development",
-  "Infrastructure",
-  "Investment & commercial advisory",
+  "National and Sub-National Government Programmes",
+  "Public Sector Transformation",
+  "Digital Government",
+  "Economic and Sector Development",
+  "Infrastructure Delivery",
+  "Investment and Commercial Advisory",
 ];
 
 export function Experience() {
@@ -29,7 +29,9 @@ export function Experience() {
           <FadeIn>
             <p className="text-xl leading-relaxed text-ink/80 lg:text-2xl">
               Since 2009, Carter has worked across a range of institutional and market environments in Nigeria and
-              beyond. Our assignments have included:
+              beyond.
+              <br />
+              Our assignments have included:
             </p>
           </FadeIn>
           {/* A plain list, not pills, so the items don't read as clickable buttons. */}
@@ -42,9 +44,7 @@ export function Experience() {
                 y={14}
                 className="flex items-baseline gap-4 border-b border-ink/10 py-5 font-display text-xl leading-snug text-ink lg:text-2xl"
               >
-                <span aria-hidden className="text-xs text-brand label-text">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span aria-hidden className="h-px w-4 shrink-0 -translate-y-[0.3em] bg-brand" />
                 {a}
               </FadeIn>
             ))}
@@ -74,7 +74,7 @@ export function Experience() {
             <RevealText
               as="p"
               text="For clients operating in Africa, these considerations are often central to whether an otherwise sound strategy can be implemented successfully. We bring that context into our work from the outset."
-              className="max-w-4xl font-display text-[clamp(1.75rem,3.4vw,3.1rem)] italic leading-[1.15]"
+              className="max-w-4xl font-display text-[clamp(1.75rem,3.4vw,3.1rem)] leading-[1.15]"
               stagger={0.02}
             />
           </ParallaxLayer>

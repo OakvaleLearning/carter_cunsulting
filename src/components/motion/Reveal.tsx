@@ -3,7 +3,7 @@
 import { motion, type Variants } from "framer-motion";
 import { cn, EASE_EXPO } from "@/lib/cn";
 
-type TextTag = "h1" | "h2" | "h3" | "p";
+type TextTag = "h1" | "h2" | "h3" | "p" | "span";
 
 const wordVariants: Variants = {
   hidden: { y: "110%" },

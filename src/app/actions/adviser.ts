@@ -40,7 +40,7 @@ export async function submitAdviser(_prev: AdviserState, fd: FormData): Promise<
 
   try {
     await sendEmail({
-      subject: `Technical Adviser enquiry: ${values.area}, ${values.name}`,
+      subject: `Technical Advisor enquiry: ${values.area}, ${values.name}`,
       replyTo: values.email,
       text: [
         `Name: ${values.name}`,
