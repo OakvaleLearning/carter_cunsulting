@@ -1,13 +1,10 @@
 import { ParallaxImage } from "@/components/motion/Parallax";
 import { FadeIn, RevealText } from "@/components/motion/Reveal";
-import { caseStudyCard } from "@/lib/case-studies";
 import { SERVICES, shortTitle, type Practice } from "@/lib/content";
-import { PracticeCaseStudies } from "./PracticeCaseStudies";
 
 export function PracticeSection({ practice }: { practice: Practice }) {
   const detail = SERVICES[practice.slug];
   const title = shortTitle(practice.title);
-  const cards = practice.caseStudies.flatMap((key) => caseStudyCard(key) ?? []);
 
   return (
     <section id={practice.slug} aria-labelledby={`${practice.slug}-title`} className="scroll-mt-28 py-24 lg:py-32">
@@ -72,10 +69,6 @@ export function PracticeSection({ practice }: { practice: Practice }) {
           ))}
         </div>
       )}
-
-      <FadeIn>
-        <PracticeCaseStudies cards={cards} />
-      </FadeIn>
     </section>
   );
 }

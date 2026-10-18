@@ -19,7 +19,7 @@ export function AboutSnapshot() {
     <section className="relative overflow-hidden bg-mist">
       <div className="container-x grid gap-16 py-28 lg:grid-cols-12 lg:gap-12 lg:py-40">
         <div className="lg:col-span-7">
-          <Eyebrow className="text-brand">About Carter</Eyebrow>
+          <Eyebrow className="text-brand">About Carter Consulting</Eyebrow>
           <RevealText
             as="p"
             text="A management and technology consulting firm advising organisations on complex strategic, institutional and operational challenges."
@@ -48,25 +48,25 @@ export function AboutSnapshot() {
           </div>
           <FadeIn delay={0.2} className="mt-12">
             <ButtonLink href="/about" variant="dark">
-              More about Carter
+              More about Carter Consulting
             </ButtonLink>
           </FadeIn>
         </div>
 
         <div className="relative lg:col-span-5">
           <ParallaxImage
-            src="/images/about.jpg"
-            alt="A calm, modern office corridor"
+            src="/images/about-building.jpg"
+            alt="Modern glass office towers rising against the sky"
             className="aspect-[4/5] w-full"
             sizes="(min-width: 1024px) 40vw, 100vw"
             speed={12}
           />
-          <ParallaxLayer speed={-70} className="absolute -bottom-8 -left-4 sm:-left-10">
+          {/* <ParallaxLayer speed={-70} className="absolute -bottom-8 -left-4 sm:-left-10">
             <div className="bg-brand px-8 py-7 text-white shadow-2xl shadow-ink/20">
               <p className="text-[11px] text-white/70 label-text">Established</p>
               <p className="mt-2 font-display text-6xl leading-none">2009</p>
             </div>
-          </ParallaxLayer>
+          </ParallaxLayer> */}
         </div>
       </div>
 

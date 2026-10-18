@@ -17,7 +17,7 @@ export function Experience() {
       <div className="container-x grid gap-14 py-28 lg:grid-cols-12 lg:gap-12 lg:py-40">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-36">
-            <Eyebrow className="text-brand">Since 2009</Eyebrow>
+            <Eyebrow className="text-brand">Our story</Eyebrow>
             <RevealText
               text="Our Experience"
               className="mt-8 font-display text-[clamp(2.4rem,4vw,3.75rem)] leading-[1.05]"
@@ -28,7 +28,7 @@ export function Experience() {
         <div className="lg:col-span-6 lg:col-start-7">
           <FadeIn>
             <p className="text-xl leading-relaxed text-ink/80 lg:text-2xl">
-              Since 2009, Carter has worked across a range of institutional and market environments in Nigeria and
+              We have worked across a range of institutional and market environments in Nigeria and
               beyond.
               <br />
               Our assignments have included:

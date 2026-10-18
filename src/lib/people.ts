@@ -184,6 +184,21 @@ export const PRACTICE_TEAMS: Group[] = [
         interests: "Beyond work, Emmanuel enjoys playing football, hiking and reading.",
         linkedin: "https://www.linkedin.com/in/emmanuel-anthony-791446186/",
       },
+      {
+    name: "Abiola Adebiyi",
+    role: "Technical Advisor",
+    bio: "Abiola has more than five years of experience in programme delivery, development finance and independent verification. As a Technical Advisor at Carter, Abiola has supported World Bank-backed and other public sector programmes.",
+    experience: [
+      "Forensic Accountant, General Compliance Ltd",
+      "Technical Support Assistant, Asset Management Corporation of Nigeria (AMCON)",
+    ],
+    education: [
+      "MSc Sustainable Development, University\u00a0of\u00a0Sussex",
+      "BSc Accounting and Management, University of Essex",
+    ],
+    interests: "In her spare time, Abiola enjoys playing badminton and flute.",
+    linkedin: "https://www.linkedin.com/in/abiolaadebiyi/",
+  }
     ],
   },
   {
@@ -279,21 +294,21 @@ export const PRACTICE_TEAMS: Group[] = [
 ];
 
 export const ASSOCIATES: Person[] = [
-  {
-    name: "Joshua Ofiwe",
-    role: "Technical Advisor",
-    bio: "Joshua has more than eight years of experience in transaction advisory and development finance. As a Technical Advisor at Carter, he has supported multilateral-funded programmes for government institutions and development finance institutions.",
-    experience: ["IFRS Reporting Officer, Fidelity Bank", "Account Relationship Manager, Fidelity Bank"],
-    education: [
-      "BSc Accounting, University of Abuja",
-      "Chartered Accountant (ACA), ICAN",
-      "Financial Modeling and Valuation Analyst (FMVA)",
-      "Project Finance Bootcamp, BFI and CFA Society Nigeria",
-    ],
-    interests:
-      "To unwind, Joshua enjoys working out, watching movies, reading, listening to music, and spending time with his family.",
-    linkedin: "https://www.linkedin.com/in/joshuaofiwe/",
-  },
+  // {
+  //   name: "Joshua Ofiwe",
+  //   role: "Technical Advisor",
+  //   bio: "Joshua has more than eight years of experience in transaction advisory and development finance. As a Technical Advisor at Carter, he has supported multilateral-funded programmes for government institutions and development finance institutions.",
+  //   experience: ["IFRS Reporting Officer, Fidelity Bank", "Account Relationship Manager, Fidelity Bank"],
+  //   education: [
+  //     "BSc Accounting, University of Abuja",
+  //     "Chartered Accountant (ACA), ICAN",
+  //     "Financial Modeling and Valuation Analyst (FMVA)",
+  //     "Project Finance Bootcamp, BFI and CFA Society Nigeria",
+  //   ],
+  //   interests:
+  //     "To unwind, Joshua enjoys working out, watching movies, reading, listening to music, and spending time with his family.",
+  //   linkedin: "https://www.linkedin.com/in/joshuaofiwe/",
+  // },
   {
     name: "Abiola Adebiyi",
     role: "Technical Advisor",
@@ -309,23 +324,23 @@ export const ASSOCIATES: Person[] = [
     interests: "In her spare time, Abiola enjoys playing badminton and flute.",
     linkedin: "https://www.linkedin.com/in/abiolaadebiyi/",
   },
-  {
-    name: "Olumide Famuyide",
-    role: "Technical Advisor",
-    bio: "Olumide has more than twenty years of experience in digital transformation and enterprise technology across enterprise software, procurement and aviation operations. As a Technical Advisor at Carter, he has supported large-scale transformation projects in West and Central Africa.",
-    experience: [
-      "Project Management Lead, West and Central Africa, SITA",
-      "Territory Account Manager, West Africa, Hitachi Data Systems",
-      "Application Sales Representative, Public Sector, Oracle",
-    ],
-    education: [
-      "MSc Information Technology with Business and Management, University\u00a0of\u00a0Sussex",
-      "BSc Civil Engineering, University of Lagos",
-      "Project Management Professional (PMP), Project Management Institute",
-    ],
-    interests: "In his leisure time, Olumide enjoys the game of cricket, rokeby, tennis, and reading.",
-    linkedin: "https://www.linkedin.com/in/olumide-famuyide-a879714/",
-  },
+  // {
+  //   name: "Olumide Famuyide",
+  //   role: "Technical Advisor",
+  //   bio: "Olumide has more than twenty years of experience in digital transformation and enterprise technology across enterprise software, procurement and aviation operations. As a Technical Advisor at Carter, he has supported large-scale transformation projects in West and Central Africa.",
+  //   experience: [
+  //     "Project Management Lead, West and Central Africa, SITA",
+  //     "Territory Account Manager, West Africa, Hitachi Data Systems",
+  //     "Application Sales Representative, Public Sector, Oracle",
+  //   ],
+  //   education: [
+  //     "MSc Information Technology with Business and Management, University\u00a0of\u00a0Sussex",
+  //     "BSc Civil Engineering, University of Lagos",
+  //     "Project Management Professional (PMP), Project Management Institute",
+  //   ],
+  //   interests: "In his leisure time, Olumide enjoys the game of cricket, rokeby, tennis, and reading.",
+  //   linkedin: "https://www.linkedin.com/in/olumide-famuyide-a879714/",
+  // },
 ];
 
 export const EXPERTISE_AREAS = [

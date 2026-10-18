@@ -112,8 +112,8 @@ export function Hero() {
           </Rise>
         </motion.div>
 
-        <Rise delay={1.8} className="mt-14 flex items-center justify-between border-t border-white/15 pt-6 label-text">
-          <span className="text-sm text-white/85 sm:text-base">Established 2009</span>
+        {/* <Rise delay={1.8} className="mt-14 flex items-center justify-between border-t border-white/15 pt-6 label-text">
+        
           <span className="hidden items-center gap-3 text-xs text-white/60 md:flex">
             Scroll
             <span aria-hidden className="relative -mt-[0.2em] block h-8 w-px overflow-hidden bg-white/20">
@@ -124,7 +124,7 @@ export function Hero() {
               />
             </span>
           </span>
-        </Rise>
+        </Rise> */}
       </motion.div>
     </section>
   );

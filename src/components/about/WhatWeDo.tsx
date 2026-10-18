@@ -28,7 +28,7 @@ export function WhatWeDo() {
         <div className="max-w-4xl">
           <Eyebrow className="text-white/80">What We Do</Eyebrow>
           <RevealText
-            text="Carter works at the point where important decisions become programmes, investments, operating models and institutional change."
+            text="Carter Consulting works at the point where important decisions become programmes, investments, operating models and institutional change."
             className="mt-8 font-display text-[clamp(2rem,4vw,3.75rem)] leading-[1.08]"
             stagger={0.03}
           />

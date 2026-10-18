@@ -19,8 +19,8 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Est. 2009 · Management & Technology Consulting"
-        title="About Carter"
+        eyebrow="About Us"
+        title="About Carter Consulting"
         image="/images/about-hero.jpg"
         intro="Carter Consulting is a multidisciplinary management and technology consultancy established in 2009."
       />
@@ -29,9 +29,9 @@ export default function Page() {
       <Approach />
       <Experience />
       <Principles />
-      <TrackRecord />
+      {/* <TrackRecord /> */}
       <WhereWeWork />
-      <Careers />
+      {/* <Careers /> */}
     </>
   );
 }

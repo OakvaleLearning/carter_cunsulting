@@ -23,7 +23,7 @@ export default function Page() {
       <Leadership />
       <PracticeTeams />
       <Associates />
-      <JoinCarter />
+      {/* <JoinCarter /> */}
     </ProfileProvider>
   );
 }

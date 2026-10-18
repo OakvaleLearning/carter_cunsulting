@@ -44,7 +44,7 @@ export function Footer() {
 
         <div className="mt-20 border-t border-white/10 pt-10">
           <p className="text-xs text-brand-light label-text">Offices</p>
-          <ul className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <ul className="mt-6 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {OFFICES.map((o) => (
               <li key={o.city}>
                 <address className="not-italic">
@@ -56,19 +56,19 @@ export function Footer() {
           </ul>
         </div>
 
-        <ParallaxLayer speed={40} className="pointer-events-none select-none">
+        {/* <ParallaxLayer speed={40} className="pointer-events-none select-none">
           <p
             aria-hidden
             className="mt-20 font-display text-[clamp(5rem,22vw,20rem)] leading-[0.8] tracking-tight text-white/[0.05]"
           >
             Carter
           </p>
-        </ParallaxLayer>
+        </ParallaxLayer> */}
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm lg:flex-row lg:justify-between">
+        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm lg:flex-row lg:justify-center">
           <p>© Carter Consulting Limited. All rights reserved.</p>
-          <p>RC 822066 · Est. 2009</p>
-          <p>Management &amp; Technology Consulting</p>
+          {/* <p>RC 822066 · Est. 2009</p>
+          <p>Management &amp; Technology Consulting</p> */}
         </div>
       </div>
     </footer>

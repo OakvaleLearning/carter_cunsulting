@@ -6,7 +6,7 @@ import { PageHero } from "@/components/ui/PageHero";
 import { PRACTICES, shortTitle } from "@/lib/content";
 
 const LEAD =
-  "Carter brings together strategy, technology, financial and transaction advisory, programme delivery and sector expertise to address complex institutional and commercial challenges.";
+  "Carter Consulting brings together strategy, technology, financial and transaction advisory, programme delivery and sector expertise to address complex institutional and commercial challenges.";
 
 export const metadata: Metadata = { title: "Our Services", description: LEAD };
 
