@@ -97,7 +97,7 @@ export const PRACTICE_TEAMS: Group[] = [
       },
       {
         name: "Morolake Onamusi",
-        role: "Consultant, Environment Advisory",
+        role: "Senior Consultant",
         bio: "Morolake has more than a decade of experience across technology, education, data and consulting. She joined Carter in 2017 as a Data Analyst and is now a Consultant in Environment Advisory, where she conducts independent verification and evidence review for public-sector and development programmes.",
         experience: ["Data Manager, Educate Nigeria Foundation", "Installation and Support Executive, CHAMS PLC"],
         education: [
@@ -117,7 +117,7 @@ export const PRACTICE_TEAMS: Group[] = [
     people: [
       {
         name: "Abraham Atteh",
-        role: "Senior Consultant, Strategy & Digital Transformation",
+        role: "Senior Consultant",
         bio: "Abraham has more than a decade of experience in management consulting, institutional reform and digital transformation. He joined Carter in 2019 and works with government and development agencies on public finance reform, strategy and programme delivery.",
         experience: ["Strategic Lead, Development and Management Consultancy, McGeorge Consulting"],
         education: ["B.Eng Mechanical Engineering, University of Ilorin", "MBA, University of Ilorin"],
