@@ -33,7 +33,7 @@ export function Associates() {
           ))}
         </ul> */}
 
-        <FadeIn className="grid gap-8 pt-14 lg:grid-cols-12 lg:gap-12">
+        {/* <FadeIn className="grid gap-8 pt-14 lg:grid-cols-12 lg:gap-12">
           <h3 className="font-display text-3xl leading-tight lg:col-span-4">Technical Advisors</h3>
           <p className="font-display text-[clamp(1.35rem,2vw,1.75rem)] leading-snug text-ink/80 lg:col-span-7 lg:col-start-6">
             As our practice areas grow in scale and project complexity, we draw on technical advisors who bring
@@ -41,7 +41,7 @@ export function Associates() {
             they work alongside our core teams, strengthening our ability to respond to the particular demands of
             each mandate.
           </p>
-        </FadeIn>
+        </FadeIn> */}
       </div>
     </section>
   );
