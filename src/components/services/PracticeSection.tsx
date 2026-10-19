@@ -31,7 +31,7 @@ export function PracticeSection({ practice }: { practice: Practice }) {
       />
 
       {detail.capabilities && (
-        <ul className="mt-14 border-b border-ink/10">
+        <ul className="mt-14">
           {detail.capabilities.map((c, i) => (
             <FadeIn
               as="li"
