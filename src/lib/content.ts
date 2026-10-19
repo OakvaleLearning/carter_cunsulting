@@ -87,12 +87,25 @@ export const shortTitle = (title: string) => title.split(" — ")[0];
 
 // Wordmarks stand in until approved partner logo files are supplied.
 export const PARTNERS = [
-  { short: "World Bank", name: "Nigeria Erosion and Watershed Management Project (NEWMAP)" },
-  { short: "NSIA", name: "Nigeria Sovereign Investment Authority" },
-  { short: "Levene", name: "Levene Energy" },
+  { short: "FMF", name: "Federal Ministry of Finance" },
+  { short: "FAAN", name: "Federal Airports Authority of Nigeria" },
+  { short: "Budget Office", name: "Budget Office of the Federation" },
+  { short: "FMOE", name: "Federal Ministry of Education" },
+  { short: "ICRC", name: "Infrastructure Concession Regulatory Commission" },
+  { short: "State Govts", name: "State Governments" },
+  { short: "MBNP", name: "Ministry of Budget and National Planning" },
   { short: "NITDA", name: "National Information Technology Development Agency" },
-  { short: "FCTA", name: "Federal Capital Territory Administration" },
-  { short: "Budget Office", name: "Federal Ministry of Budget and National Planning" },
+  { short: "Levene", name: "Levene Energy" },
+  { short: "World Bank", name: "The World Bank" },
+  { short: "AfDB", name: "African Development Bank" },
+  { short: "PTAD", name: "Pension Transitional Arrangement Directorate" },
+  { short: "NCCC", name: "National Council on Climate Change" },
+  { short: "Intel", name: "Intel Corporation" },
+  { short: "Galaxy Backbone", name: "Galaxy Backbone Limited" },
+  { short: "CAO", name: "Cabinet Affairs Office" },
+  { short: "FIRS", name: "Federal Inland Revenue Service" },
+  { short: "Exter Health", name: "Exter Health" },
+  { short: "BPE", name: "Bureau of Public Enterprises" },
 ];
 
 export const PILLARS = [

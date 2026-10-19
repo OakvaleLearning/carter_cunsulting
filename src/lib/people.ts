@@ -174,7 +174,7 @@ export const PRACTICE_TEAMS: Group[] = [
       },
       {
         name: "Emmanuel Anthony",
-        role: "Senior Consultant, Financial & Transaction Advisory",
+        role: "Senior Consultant",
         bio: "Emmanuel has more than five years of experience in advisory and financial services. He joined Carter in 2025 and works on public-sector and multilateral-funded programmes across fiscal reform, independent verification and transaction structuring.",
         experience: [
           "Finance, Audit and Tax Manager, Euston British International High School",
