@@ -65,8 +65,19 @@ export function Footer() {
           </p>
         </ParallaxLayer> */}
 
-        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm lg:flex-row lg:justify-center">
+        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-8 text-sm lg:flex-row lg:justify-center lg:gap-6">
           <p>© Carter Consulting Limited. All rights reserved.</p>
+          <p>
+            Developed by{" "}
+            <a
+              href="https://www.circleofthreetech.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white transition-colors hover:text-brand-light"
+            >
+              co3
+            </a>
+          </p>
           {/* <p>RC 822066 · Est. 2009</p>
           <p>Management &amp; Technology Consulting</p> */}
         </div>
